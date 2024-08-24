@@ -26,6 +26,7 @@ public class UserController {
     @GetMapping("/all")
     public List<User> getAllUsers() {
         List<User> users = userService.selectAllUsers();
+        System.out.println("getAllUsers invoked");
         System.out.println(users);
         return users;
     }
