@@ -1,0 +1,20 @@
+scenario:A marketing team is planning its advertising budget for the upcoming year. They want to understand the relationship between advertising spend and sales to optimize their investment.
+task:Use linear regression to build a model that predicts the sales based on the advertising spend.  Use the provided data to train your model and then predict sales for different advertising spend values. Analyze the model's performance using appropriate metrics like R-squared and MSE.
+data:{"Sales":[1200,1500,1800,2100,2400,2700,3000,3300,3600],"Advertising Spend":[100,150,200,250,300,350,400,450,500]}
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+data = {"Sales": [1200, 1500, 1800, 2100, 2400, 2700, 3000, 3300, 3600],
+        "Advertising Spend": [100, 150, 200, 250, 300, 350, 400, 450, 500]}
+df = pd.DataFrame(data)
+model = LinearRegression()
+X = df[['Advertising Spend']]
+Y = df['Sales']
+model.fit(X, Y)
+print('Coefficients:', model.coef_)
+print('Intercept:', model.intercept_)
+predictions = model.predict(X)
+print('Predictions:', predictions)
+print('R-squared:', r2_score(Y, predictions))
+print('Mean squared error:', mean_squared_error(Y, predictions))
+print(f'Sales prediction for advertising spend of 600: {model.predict([[600]])[0]}')
