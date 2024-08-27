@@ -21,7 +21,7 @@ public class PythonCodeGenerator {
     public String generateCode() {
         // 构建命令行参数列表
         List<String> command = new ArrayList<>();
-        command.add("ai/bin/python");  // 可能需要替换为 'python3' 或完整的解释器路径
+        command.add("C:\\Users\\61415\\Downloads\\neat download\\backend\\AI_Generation\\AI\\lib\\python3.12");  // 可能需要替换为 'python3' 或完整的解释器路径
         command.add("src/model/Generate_Code.py");  // 替换为Python脚本的实际路径
         command.add(scenario);
         command.add(task);
