@@ -11,4 +11,7 @@
         INSERT INTO user_data (ip_address, correctness, topic_category, duration, context)
         VALUES (#{ipAddress}, #{correctness}, #{topicCategory}, #{duration}, #{context})
     </insert>
+    <select id="selectByTopicCategory" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data WHERE topic_category = #{topicCategory}
+    </select>
 </mapper>

@@ -29,4 +29,10 @@ public class UserController {
         System.out.println(users);
         return users;
     }
+    @GetMapping("/topic/{topic}")
+    public List<User> getUsersByTopic(@PathVariable String topic) {
+        List<User> users = userService.selectUsersByTopic(topic);
+        System.out.println(users);
+        return users;
+    }
 }

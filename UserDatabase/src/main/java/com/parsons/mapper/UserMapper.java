@@ -11,4 +11,6 @@ public interface UserMapper {
     int insertUser(User user);
     @Select("SELECT * FROM user_data")
     List<User> selectAllUsers();
+    @Select("SELECT * FROM user_data WHERE topic_category = #{topic}")
+    List<User> selectUsersByTopic(String topic);
 }

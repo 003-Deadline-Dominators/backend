@@ -18,4 +18,7 @@ public class UserService {
     public List<User> selectAllUsers() {
         return userMapper.selectAllUsers();
     }
+    public List<User> selectUsersByTopic(String topic) {
+        return userMapper.selectUsersByTopic(topic);
+    }
 }
