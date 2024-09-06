@@ -24,7 +24,7 @@ public class PythonCodeGenerator {
         command.add("docker");
         command.add("run");
         command.add("--rm");
-        command.add("gemini-python-app");  // Docker 镜像名
+        command.add("rita6667/gemini-app:latest");  // Docker 镜像名
         command.add("src/model/Generate_Code.py");
         command.add(scenario);
         command.add(task);
