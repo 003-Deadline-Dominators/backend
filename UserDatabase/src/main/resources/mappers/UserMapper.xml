@@ -8,8 +8,8 @@
         SELECT * FROM user_data
     </select>
     <insert id="insert" parameterType="com.parsons.pojo.User">
-        INSERT INTO user_data (ip_address, correctness, topic_category, duration, context)
-        VALUES (#{ipAddress}, #{correctness}, #{topicCategory}, #{duration}, #{context})
+        INSERT INTO user_data (ip_address, correctness, topic_category, duration, context, timestamp)
+        VALUES (#{ipAddress}, #{correctness}, #{topicCategory}, #{duration}, #{context}, #{timestamp})
     </insert>
     <select id="selectByTopicCategory" resultType="com.parsons.pojo.User">
         SELECT * FROM user_data WHERE topic_category = #{topicCategory}
