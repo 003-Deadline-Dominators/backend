@@ -1,6 +1,6 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
@@ -15,11 +15,14 @@ public class PythonProblemGenerator {
         this.context = context;
     }
 
-    // 生成问题的方法
+    // 调用 Python 脚本生成问题
     public JSONObject generateProblem() {
         List<String> command = new ArrayList<>();
-        command.add("ai/bin/python");  // 可能需要替换为 'python3' 或完整的解释器路径
-        command.add("src/model/Generate_Question.py");  // 替换为Python脚本的实际路径
+        command.add("docker");
+        command.add("run");
+        command.add("--rm");
+        command.add("gemini-python-app");  // Docker 镜像名
+        command.add("src/model/Generate_Question.py");
         command.add(topic);
         command.add(context);
 

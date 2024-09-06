@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class PythonCodeGenerator {
@@ -18,11 +19,13 @@ public class PythonCodeGenerator {
     }
 
     // 生成代码的方法
-    public String generateCode() {
-        // 构建命令行参数列表
+    public JSONObject generateCode() {
         List<String> command = new ArrayList<>();
-        command.add("ai/bin/python");  // 可能需要替换为 'python3' 或完整的解释器路径
-        command.add("src/model/Generate_Code.py");  // 替换为Python脚本的实际路径
+        command.add("docker");
+        command.add("run");
+        command.add("--rm");
+        command.add("gemini-python-app");  // Docker 镜像名
+        command.add("src/model/Generate_Code.py");
         command.add(scenario);
         command.add(task);
         if (data != null && !data.isEmpty()) {
@@ -45,7 +48,16 @@ public class PythonCodeGenerator {
             JSONObject json = new JSONObject(output.toString());
             String code = json.getString("code");
 
-            return code;
+            JSONArray codeArray = new JSONArray();
+            String[] lines = code.split("\n");
+            for (String codeLine : lines) {
+                codeArray.put(codeLine);
+            }
+
+            JSONObject result = new JSONObject();
+            result.put("code", codeArray);
+
+            return result;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
             return null;

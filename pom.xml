@@ -23,6 +23,7 @@
     </developers>
     <modules>
         <module>UserDatabase</module>
+        <module>AI_Generation</module>
     </modules>
     <scm>
         <connection/>

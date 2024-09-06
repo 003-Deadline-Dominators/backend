@@ -1,8 +1,10 @@
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class Driver {
     public static void main(String[] args) {
@@ -17,32 +19,44 @@ public class Driver {
         String scenario = problemDetails.getString("scenario");
         String task = problemDetails.getString("task");
 
+        // 替换掉多余的"python"并清除空白字符
         String data = problemDetails.optString("data").replace("python", "").strip();
 
-        // String data = problemDetails.optString("data");
-
-        System.out.println("scenario:" + scenario);
-        System.out.println("task:" + task);
-        System.out.println("data:" + data);
-
+        System.out.println("scenario: " + scenario);
+        System.out.println("task: " + task);
+        System.out.println("data: " + data);
 
         // 实例化代码生成器
         PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
-        String generatedCode = codeGenerator.generateCode();
-        System.out.println("Generated Code:\n" + generatedCode);
+        JSONObject generatedCode = codeGenerator.generateCode();
 
-        // 将生成的代码写入txt文件
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("generated.txt"))) {
-            writer.write("scenario:" + scenario);
-            writer.newLine();
-            writer.write("task:" + task);
-            writer.newLine();
-            writer.write("data:" + data);
-            writer.newLine();
-            writer.write(generatedCode);
-            System.out.println("Generated code has been written to 'generated_code.txt'");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (generatedCode == null) {
+            System.out.println("Failed to generate code.");
+            return;
         }
+
+        // 打印生成的代码
+        System.out.println(generatedCode);
+//        for (String line : generatedCode) {
+//            System.out.println(line);
+//        }
+
+        // 创建一个JSON对象来存储结果
+//        JSONObject outputJson = new JSONObject();
+//        outputJson.put("scenario", scenario);
+//        outputJson.put("task", task);
+//        outputJson.put("data", data);
+//
+//        // 将代码行存入JSONArray中
+//        JSONArray codeArray = new JSONArray(generatedCode);
+//        outputJson.put("code", codeArray);
+//        System.out.println((outputJson));
+//
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter("generated_code.json"))) {
+//            writer.write(outputJson.toString(4));  // 格式化JSON输出，缩进4个空格
+//            System.out.println("Generated code has been written to 'generated_code.json'");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

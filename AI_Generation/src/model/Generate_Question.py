@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import google.generativeai as genai
 import os
@@ -6,7 +7,11 @@ import json
 
 # 加载API密钥
 _ = load_dotenv(find_dotenv())
-genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
+# 获取API Key
+api_key = os.getenv('GEMINI_API_KEY')
+# 配置genai
+genai.configure(api_key=api_key)
+
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
