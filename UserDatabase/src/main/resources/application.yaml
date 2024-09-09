@@ -4,13 +4,12 @@ spring:
     username: root
     password: 843215yg
     driver-class-name: com.mysql.cj.jdbc.Driver
-  mybatis:
-    mapper-locations: classpath*:mappers/*.xml
-    type-aliases-package: com.parsons.pojo
-    configuration:
-      map-underscore-to-camel-case: true
-  server:
-    port: 8080
   main:
     web-application-type: servlet
-
+mybatis:
+  type-aliases-package: com.parsons.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mappers/*.xml
+server:
+  port: 8080

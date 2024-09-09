@@ -1,5 +1,8 @@
 package com.parsons.controller;
+import com.parsons.pojo.Context;
+import com.parsons.pojo.Topic;
 import com.parsons.pojo.User;
+import com.parsons.service.TopicService;
 import com.parsons.service.UserService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/admin")
 public class UserController {
     private final UserService userService;
     public UserController(UserService userService) {
@@ -18,9 +21,8 @@ public class UserController {
         return "UserController is up and running!";
     }
 
-    @PostMapping("/insert")
+    @PostMapping("/insertData")
     public void insertUser(@RequestBody User user) {
-        System.out.println("insert invoked");
         userService.insertUser(user);
     }
     @GetMapping("/all")
@@ -34,4 +36,13 @@ public class UserController {
         List<User> users = userService.selectUsersByTopic(topic);
         return users;
     }
+    @PostMapping("/insertTopic")
+    public void insertTopic(@RequestBody Topic topic) {
+        userService.insertTopic(topic);
+    }
+    @PostMapping("/insertContext")
+    public void insertContext(@RequestBody Context context) {
+        userService.insertContext(context);
+    }
+
 }
