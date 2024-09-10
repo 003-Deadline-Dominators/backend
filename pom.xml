@@ -24,6 +24,7 @@
     <modules>
         <module>UserDatabase</module>
         <module>AI_Generation</module>
+        <module>IDE</module>
     </modules>
     <scm>
         <connection/>
