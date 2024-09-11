@@ -13,7 +13,7 @@ public class TopicService {
 
     public TopicService(TopicMapper topicMapper) { this.topicMapper = topicMapper; }
     public List<Topic> selectAllTopics() { return topicMapper.selectAllTopics(); }
-    public List<Context> selectContextsByTopic(int topicId) { return topicMapper.selectContextsByTopic(topicId); }
+    public List<Context> selectContextsByTopic(String topicTitle) { return topicMapper.selectContextsByTopic(topicTitle); }
 
 
 }

@@ -22,8 +22,8 @@ public class TopicController {
         return topics;
     }
 
-    @GetMapping("/contexts/{topicId}")
-    public List<Context> getContextsByTopic(@PathVariable Integer topicId) {
-        return topicService.selectContextsByTopic(topicId);
+    @GetMapping("/contexts/{topicTitle}")
+    public List<Context> getContextsByTopic(@PathVariable String topicTitle) {
+        return topicService.selectContextsByTopic(topicTitle);
     }
 }

@@ -6,5 +6,5 @@ import lombok.Data;
 public class Context {
     private String contextTitle;
     private String contextDescription;
-    private int topicId;
+    private String topicTitle;
 }

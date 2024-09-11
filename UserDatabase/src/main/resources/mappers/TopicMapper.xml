@@ -8,6 +8,6 @@
         SELECT * FROM topic
     </select>
     <select id="selectContextsByTopic" resultType="com.parsons.pojo.Context">
-        SELECT * FROM contexts WHERE topic_id = #{topicId}
+        SELECT * FROM contexts WHERE topic_Title = #{topicTitle}
     </select>
 </mapper>
