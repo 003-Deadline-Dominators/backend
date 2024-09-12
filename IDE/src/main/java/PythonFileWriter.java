@@ -8,7 +8,7 @@ public class PythonFileWriter {
     // Method to save Python code as a .py file
     public String savePythonScript(String pythonCode, String filePath) throws IOException {
         File file = new File(filePath);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, false))) {
             writer.write(pythonCode);
         }
         return filePath; // Return the file path of the saved Python script

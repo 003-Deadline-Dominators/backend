@@ -20,13 +20,13 @@ public class Driver {
 //                        "name = 'Deadline Dominators'\n" +
 //                        "print(greet(name))\n";
 
-        String pythonCode =
-                "def add_numbers(a, b):\n" +
-                        "    return a + b\n\n" +
-                        "num1 = 5\n" +
-                        "num2 = 10\n" +
-                        "result = add_numbers(num1, num2)\n" +
-                        "print('The sum of', num1, 'and', num2, 'is:', result)\n";
+//        String pythonCode =
+//                "def add_numbers(a, b):\n" +
+//                        "    return a + b\n\n" +
+//                        "num1 = 5\n" +
+//                        "num2 = 10\n" +
+//                        "result = add_numbers(num1, num2)\n" +
+//                        "print('The sum of', num1, 'and', num2, 'is:', result)\n";
 
         // Missing closing parenthesis
 //        String pythonCode =
@@ -39,13 +39,13 @@ public class Driver {
 //                        "print(greet(name)\n";
 
         // division zero
-//        String pythonCode =
-//                "def divide(a, b):\n" +
-//                        "    return a / b\n\n" +
-//                        "num1 = 10\n" +
-//                        "num2 = 0  # Dividing by zero\n" +
-//                        "result = divide(num1, num2)\n" +
-//                        "print('Result:', result)\n";
+        String pythonCode =
+                "def divide(a, b):\n" +
+                        "    return a / b\n\n" +
+                        "num1 = 10\n" +
+                        "num2 = 0  # Dividing by zero\n" +
+                        "result = divide(num1, num2)\n" +
+                        "print('Result:', result)\n";
 
         // import error
 //        String pythonCode =

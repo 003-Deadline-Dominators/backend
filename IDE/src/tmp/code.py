@@ -1,7 +1,7 @@
-def add_numbers(a, b):
-    return a + b
+def divide(a, b):
+    return a / b
 
-num1 = 5
-num2 = 10
-result = add_numbers(num1, num2)
-print('The sum of', num1, 'and', num2, 'is:', result)
+num1 = 10
+num2 = 0  # Dividing by zero
+result = divide(num1, num2)
+print('Result:', result)
