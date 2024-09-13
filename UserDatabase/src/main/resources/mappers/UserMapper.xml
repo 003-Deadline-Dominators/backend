@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.parsons.mapper.UserMapper">
+    <!-- SQL statements go here -->
+    <select id="selectAllUsers" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data
+    </select>
+    <insert id="insertUser" parameterType="com.parsons.pojo.User">
+        INSERT INTO user_data (ip_address, correctness, topic_category, duration, contexts, data_timestamps)
+        VALUES (#{ipAddress}, #{correctness}, #{topicCategory}, #{duration}, #{contexts}, #{dataTimestamps})
+    </insert>
+    <select id="selectUsersByTopic" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data WHERE topic_category = #{topicCategory}
+    </select>
+    <insert id="insertTopic" parameterType="com.parsons.pojo.Topic">
+        INSERT INTO topic (topic_title, topic_description)
+        VALUES (#{topicTitle}, #{topicDescription})
+    </insert>
+    <insert id="insertContext" parameterType="com.parsons.pojo.Context">
+        INSERT INTO contexts (context_title, context_description, topic_id)
+        VALUES (#{contextTitle}, #{contextDescription}, #{topicId})
+    </insert>
+</mapper>
