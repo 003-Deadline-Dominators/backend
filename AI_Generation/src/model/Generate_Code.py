@@ -34,14 +34,14 @@ def generate_code_prompt(scenario, task, data=None):
         """
 
     prompt += """
-    Please generate a Python code framework that can address the task described above. Ensure that the code includes:
+    Please generate Python code that can correctly and effectively solve the task described above. Ensure that:
 
-    1. Data processing steps (e.g., loading, cleaning, etc.).
-    2. The construction of a linear regression model using appropriate Python libraries (such as scikit-learn).
-    3. Fitting the model to the provided data.
-    4. A step for analyzing the model's coefficients to determine which factors have the strongest influence on the outcome.
-    5. Outputting the model's predictions for the provided data.
-    6. Commenting important parts of the code for clarity.
+    1. The code directly addresses the task requirements.
+    2. There are no errors in the generated code, and it can run successfully without issues.
+    3. If data processing is needed (e.g., loading, cleaning), those steps are included and appropriate to the data structure.
+    4. The solution is implemented with clear and well-structured Python code.
+    5. All essential parts of the code are well-commented for clarity and understanding.
+    6. If external libraries are required, ensure that they are appropriate for the task and are included in the code.
 
     The output format should be as follows:
     ```json

@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # 安装项目的Python依赖
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # 将 .env 文件复制到 Docker 容器中 /app/src/model 目录
 COPY src/model/.env /app/src/model/.env
