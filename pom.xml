@@ -8,6 +8,7 @@
         <version>3.3.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.parsons</groupId>
     <artifactId>Parsons-Backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -21,11 +22,13 @@
     <developers>
         <developer/>
     </developers>
+
     <modules>
         <module>UserDatabase</module>
         <module>AI_Generation</module>
         <module>IDE</module>
     </modules>
+
     <scm>
         <connection/>
         <developerConnection/>
@@ -79,6 +82,20 @@
             <artifactId>lombok</artifactId>
             <version>1.18.34</version>
         </dependency>
+
+        <!-- JSON 解析库 -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+
+        <!--        <dependency>-->
+<!--            <groupId>com.parsons</groupId>-->
+<!--            <artifactId>AI_Generation</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>
@@ -87,7 +104,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>17</source>  <!-- 确保与你的Java版本一致 -->
+                    <target>17</target>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
 
 </project>

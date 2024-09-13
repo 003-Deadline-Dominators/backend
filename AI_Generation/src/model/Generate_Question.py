@@ -17,11 +17,11 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 def generate_problem_prompt(topic, context):
     prompt = f"""
-    You are an AI assistant for a website that generates Parson's problems. Based on the user's selected topic and context, create a complete problem with the following structure:
+    You are an AI assistant for a website that generates Parsons' problems specifically designed for data science students. Based on the user's selected topic and context, create a realistic problem that can be solved using Python code. The problem should be meaningful and applicable to real-world scenarios.
 
-    1. **Scenario Description**: Provide a brief and clear scenario description that aligns with both the topic and the context.
-    2. **Task Description**: Give a detailed task that the user needs to accomplish using the given topic and context. This should be actionable and clear.
-    3. **Data (if applicable)**: If the task requires data, provide a sample data set in an easily usable format (e.g., table, list).
+    1. **Scenario Description**: Provide a brief, realistic scenario that aligns with the selected topic and context. The scenario should reflect a data science challenge, such as analyzing data, implementing algorithms, or performing tasks like visualization, prediction, or classification.
+    2. **Task Description**: Clearly outline the task the user needs to accomplish using Python. Ensure the task is actionable, aligns with the scenario, topic and context.
+    3. **Data (if applicable)**: If the task requires data, provide a small sample dataset in a usable format (e.g., table, list). If the data is large or complex, include a reference to a CSV or other external file format without specific content (e.g., 'data.csv').
 
     The selected **topic** is: {topic}
     The selected **context** is: {context}
@@ -31,7 +31,7 @@ def generate_problem_prompt(topic, context):
     {{
       "scenario": "Scenario Description",
       "task": "Task Description",
-      "data": "Data or null if not applicable"
+      "data": "Data or 'data.csv' (if applicable)"
     }}
     """
     return prompt
@@ -46,8 +46,8 @@ def extract_problem_content(problem_json_str):
     # return problem_data
 
 def main():
-    topic = sys.argv[1]  # 从命令行参数获取 topic
-    context = sys.argv[2]  # 从命令行参数获取 context
+    topic = sys.argv[1]
+    context = sys.argv[2]
     
     prompt = generate_problem_prompt(topic, context)
     response = model.generate_content(prompt)  # 生成AI的回复
