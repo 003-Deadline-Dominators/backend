@@ -24,9 +24,25 @@ def generate_code_prompt(scenario, task, data=None):
 
     ### Task:
     {task}
+
+    Ensure that the generated Python code meets the following criteria:
+
+    1. **Complete Solution:** The code must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs.
+    2. **Correctness:** The code should be error-free and capable of running successfully on the provided dataset (or a similar dataset structure).
+    3. **Structured Code:** The solution must include:
+        - Steps for loading and processing the data (if applicable).
+        - Any intermediate calculations or transformations needed to meet the task requirements.
+        - Final calculations or results that directly solve the task.
+    4. **Modular Approach:** Where applicable, break the solution into functions or logical blocks to enhance readability and reusability.
+    5. **Libraries:** If external libraries (like pandas, NumPy, etc.) are required, import them at the beginning of the code and explain their use where necessary.
+    6. **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
+    7. **Robustness:** Handle potential errors, such as missing or malformed data, if they are likely to occur in the dataset.
+    8. **Intermediate Steps:** Make sure the code includes all steps required for data loading, processing, and transforming it before reaching the final output. Address how data is cleaned or modified before any analysis.
+    9. **Error Handling:** Include proper error handling for any potential issues, such as missing values, incorrect data types, or unexpected data structures, and provide informative error messages.
+    10. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the top 5 best-selling products in a clean table or returning the total revenue by category in a sorted list.
+    11. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
     """
 
-    # 如果 data 不为空，则包含 Data 部分
     if data:
         prompt += f"""
         ### Data:
@@ -34,22 +50,18 @@ def generate_code_prompt(scenario, task, data=None):
         """
 
     prompt += """
-    Please generate Python code that can correctly and effectively solve the task described above. Ensure that:
-
-    1. The code directly addresses the task requirements.
-    2. There are no errors in the generated code, and it can run successfully without issues.
-    3. If data processing is needed (e.g., loading, cleaning), those steps are included and appropriate to the data structure.
-    4. The solution is implemented with clear and well-structured Python code.
-    5. All essential parts of the code are well-commented for clarity and understanding.
-    6. If external libraries are required, ensure that they are appropriate for the task and are included in the code.
-
     The output format should be as follows:
     ```json
     {
       "code": "Generated Python Code"
     }
+    ```
+
+    Please ensure that the AI model generates code that addresses all the points mentioned above and produces a solution that can run smoothly without issues.
     """
+
     return prompt
+
 
 def extract_text_from_response(response):
     return response.candidates[0].content.parts[0].text

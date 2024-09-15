@@ -11,7 +11,7 @@ import java.util.List;
 public class Driver {
     public static void main(String[] args) {
         // 实例化问题生成器
-        PythonProblemGenerator problemGenerator = new PythonProblemGenerator("Linear Regression", "Predicting Sales Based on Advertising Spend");
+        PythonProblemGenerator problemGenerator = new PythonProblemGenerator("DataFrame", "Woolworths Sales Data Analysis ");
         JSONObject problemDetails = problemGenerator.generateProblem();
         if (problemDetails == null) {
             System.out.println("Failed to generate problem details.");
