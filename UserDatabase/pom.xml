@@ -8,8 +8,8 @@
         <artifactId>Parsons-Backend</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <artifactId>UserDatabase</artifactId>
+
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -46,6 +46,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.34</version>
+        </dependency>
+        <dependency>
+            <groupId>com.parsons.IDE</groupId>
+            <artifactId>IDE</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.parsons.AI_Generation</groupId>
+            <artifactId>AI_Generation</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
     <build>
