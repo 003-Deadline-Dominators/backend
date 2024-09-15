@@ -1,7 +1,6 @@
 package com.parsons.pojo;
 
 import lombok.Data;
-
 import java.sql.Timestamp;
 
 @Data
@@ -59,5 +58,30 @@ public class User {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+    public String encryptIPAddress() {
+        StringBuilder encrypted = new StringBuilder();
+
+        for (char c : this.ipAddress.toCharArray()) {
+            // convert to ASCII value
+            int asciiValue = (int) c;
+            // map to a-z
+            char encryptedChar = (char) ('a' + (asciiValue % 26));
+            encrypted.append(encryptedChar);
+        }
+
+        return encrypted.toString();
+    }
+    public String decryptIPAddress() {
+        StringBuilder decrypted = new StringBuilder();
+
+        // 遍历加密后的字符串的每个字符
+        for (char c : this.ipAddress.toCharArray()) {
+            // convert to ASCII value
+            int originalAscii = ((c - 'a') + 26);
+            decrypted.append((char) originalAscii);
+        }
+
+        return decrypted.toString();
     }
 }
