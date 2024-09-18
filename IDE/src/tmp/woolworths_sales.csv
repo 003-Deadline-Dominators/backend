@@ -1,0 +1,9 @@
+customer_id,purchase_date,product_category,total_spending
+12345,2023-03-15,Groceries,50.00
+67890,2023-03-18,Electronics,120.00
+12345,2023-03-22,Clothing,30.00
+98765,2023-03-25,Groceries,40.00
+67890,2023-03-28,Homeware,60.00
+12345,2023-04-01,Groceries,70.00
+98765,2023-04-05,Electronics,100.00
+67890,2023-04-08,Clothing,50.00
