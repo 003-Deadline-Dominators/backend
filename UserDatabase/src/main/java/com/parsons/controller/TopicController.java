@@ -5,6 +5,8 @@ import com.parsons.pojo.Topic;
 import com.parsons.service.TopicService;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -22,6 +24,8 @@ public class TopicController {
 
     @GetMapping("/contexts/{topicTitle}")
     public List<Context> getContextsByTopic(@PathVariable String topicTitle) {
+        topicTitle = URLDecoder.decode(topicTitle, StandardCharsets.UTF_8);
+        System.out.println(topicTitle);
         return topicService.selectContextsByTopic(topicTitle);
     }
 }
