@@ -11,4 +11,7 @@ public interface TopicMapper {
 
     // 根据 topicId 查询 Context
     List<Context> selectContextsByTopic(String topicTitle);
+
+    // 根据 topicId 查询 Context
+    List<Context> selectTopicByTitle(String topicTitle);
 }

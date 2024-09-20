@@ -10,4 +10,7 @@
     <select id="selectContextsByTopic" resultType="com.parsons.pojo.Context">
         SELECT * FROM contexts WHERE topic_Title = #{topicTitle}
     </select>
+    <select id="selectTopicByTitle" resultType="com.parsons.pojo.Context">
+        SELECT * FROM contexts WHERE topic_Title = #{topicTitle}
+    </select>
 </mapper>

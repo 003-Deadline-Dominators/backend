@@ -89,24 +89,6 @@
             <artifactId>json</artifactId>
             <version>20210307</version>
         </dependency>
-        <dependency>
-            <groupId>com.parsons</groupId>
-            <artifactId>UserDatabase</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.parsons</groupId>
-            <artifactId>IDE</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.parsons</groupId>
-            <artifactId>AI_Generation</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
 
         <!--        <dependency>-->
 <!--            <groupId>com.parsons</groupId>-->
