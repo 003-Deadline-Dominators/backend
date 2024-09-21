@@ -15,5 +15,4 @@ public class TopicService {
     public List<Topic> selectAllTopics() { return topicMapper.selectAllTopics(); }
     public List<Context> selectContextsByTopic(String topicTitle) { return topicMapper.selectContextsByTopic(topicTitle); }
 
-
 }

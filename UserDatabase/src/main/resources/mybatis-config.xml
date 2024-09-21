@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 全局设置 -->
+    <settings>
+        <!-- 允许MyBatis自动将数据库字段命名转换为驼峰命名法 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 打印SQL日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 配置环境 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/parsons_data_db"/>
+                <property name="username" value="root"/>
+                <property name="password" value="843215yg"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 映射配置，指向 Mapper 文件 -->
+    <mappers>
+        <!-- 或者通过接口自动映射 -->
+        <mapper resource="mappers/TopicMapper.xml"/>
+        <mapper resource="mappers/UserMapper.xml"/>
+    </mappers>
+
+</configuration>

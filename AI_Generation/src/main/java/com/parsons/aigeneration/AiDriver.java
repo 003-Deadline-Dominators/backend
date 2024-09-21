@@ -1,13 +1,8 @@
 package com.parsons.aigeneration;
-import org.json.JSONArray;
+
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
-
-public class Driver {
+public class AiDriver {
     public static void main(String[] args) {
         // 实例化问题生成器
         PythonProblemGenerator problemGenerator = new PythonProblemGenerator("Linear Regression", "Predicting Sales Based on Advertising Spend");
