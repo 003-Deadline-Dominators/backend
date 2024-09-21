@@ -10,14 +10,23 @@ public class User {
     private String topicCategory;
     private int duration;
     private String contexts;
-    private Timestamp dataTimestamps;
+    private Timestamp submitTime;
+    private Timestamp generateTime;
 
-    public Timestamp getDataTimestamps() {
-        return dataTimestamps;
+    public void setGenerateTime(Timestamp generateTime) {
+        this.generateTime = generateTime;
     }
 
-    public void setDataTimestamps(Timestamp dataTimestamps) {
-        this.dataTimestamps = dataTimestamps;
+    public void setSubmitTime(Timestamp submitTime) {
+        this.submitTime = submitTime;
+    }
+
+    public Timestamp getGenerateTime() {
+        return generateTime;
+    }
+
+    public Timestamp getSubmitTime() {
+        return submitTime;
     }
 
     public String getContexts() {
