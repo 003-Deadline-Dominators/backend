@@ -1,24 +1,31 @@
 package com.parsons.controller;
 
+import com.parsons.pojo.Context;
 import com.parsons.pojo.Topic;
 import com.parsons.service.TopicService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/topics")
 public class TopicController {
-    @Autowired
-    private TopicService topicService;
+    private final TopicService topicService;
+    public TopicController(TopicService topicService) { this.topicService = topicService; }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Topic> getAllTopics() {
-        System.out.println("TopicController is up and running!");
-        return topicService.getAllTopics();
+        List<Topic> topics = topicService.selectAllTopics();
+        return topics;
     }
 
+    @GetMapping("/contexts/{topicTitle}")
+    public List<Context> getContextsByTopic(@PathVariable String topicTitle) {
+        topicTitle = URLDecoder.decode(topicTitle, StandardCharsets.UTF_8);
+        System.out.println(topicTitle);
+        return topicService.selectContextsByTopic(topicTitle);
+    }
 }
