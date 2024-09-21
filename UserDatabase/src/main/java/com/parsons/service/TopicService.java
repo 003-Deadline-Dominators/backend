@@ -1,19 +1,28 @@
 package com.parsons.service;
 
-import com.parsons.mapper.TopicMapper;
-import com.parsons.pojo.Context;
 import com.parsons.pojo.Topic;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class TopicService {
-    private final TopicMapper topicMapper;
+    private final List<Topic> topics = Arrays.asList(
+            new Topic("DataFrame", "Learn about DataFrames"),
+            new Topic("Correlation", "Understanding correlations"),
+            new Topic("Linear Regression", "Learn about linear regression"),
+            new Topic("NMI", "Learn about Normalized Mutual Information"),
+            new Topic("Sentence splitting using nltk", "Learn how to split sentences using nltk"),
+            new Topic("Reading/Writing CSV files", "Learn how to handle CSV files"),
+            new Topic("Decision Tree Classifier", "Introduction to Decision Tree Classifier")
+    );
+    public List<Topic> getAllTopics() {
+        return topics;
+    }
 
-    public TopicService(TopicMapper topicMapper) { this.topicMapper = topicMapper; }
-    public List<Topic> selectAllTopics() { return topicMapper.selectAllTopics(); }
-    public List<Context> selectContextsByTopic(String topicTitle) { return topicMapper.selectContextsByTopic(topicTitle); }
-
+    public Topic getTopicByName(String name) {
+        return topics.stream().filter(topic -> topic.getName().equals(name)).findFirst().get();
+    }
 
 }

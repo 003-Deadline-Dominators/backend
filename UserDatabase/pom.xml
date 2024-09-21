@@ -54,7 +54,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.parsons.DatabaseApp</mainClass>
+                    <mainClass>com.parsons.ParsonsApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
