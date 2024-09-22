@@ -17,7 +17,7 @@ public class UserTest {
     @Autowired
     UserMapper userMapper;
 
-    // 测试 selectAllUsers 方法
+    // test selectAllUsers method
     @Test
     public void testSelectAllUsers() {
         List<User> users = userMapper.selectAllUsers();
@@ -55,11 +55,11 @@ public class UserTest {
         user.setGenerateTime(new Timestamp(System.currentTimeMillis()));
 
         int result = userMapper.insertUser(user);
-        assertEquals(1, result);  // 验证插入操作返回1，表示成功插入了一条记录
+        assertEquals(1, result);  // verify that the insert operation was successful
 
         // 验证插入后的数据
         List<User> users = userMapper.selectUsersByTopic("Test Category");
-        assertTrue(users.size() > 0);  // 验证有用户被插入到数据库
+        assertTrue(users.size() > 0);  // verify that there are users in the database
         boolean found = false;
         for (User u : users) {
             if ("192.168.1.1".equals(u.getIpAddress()) && "Test Category".equals(u.getTopicCategory())) {
