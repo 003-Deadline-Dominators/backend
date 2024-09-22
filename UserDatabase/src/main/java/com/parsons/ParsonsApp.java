@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = "com.parsons")
 @MapperScan("com.parsons.mapper")
-public class DatabaseApp {
+public class ParsonsApp {
     public static void main(String[] args) {
-        SpringApplication.run(DatabaseApp.class, args);
+        SpringApplication.run(ParsonsApp.class, args);
     }
 }

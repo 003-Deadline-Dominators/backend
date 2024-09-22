@@ -84,9 +84,7 @@ public class PythonProblemGenerator {
 
                         // Save the CSV data to the specified directory, ignoring empty lines
                         saveCsvToFile(filename, csvData);
-
-                        // After saving, update the 'data' field in json to just 'filename.csv'
-                        json.put("data", filename);
+                        
                     }
                 }
             }

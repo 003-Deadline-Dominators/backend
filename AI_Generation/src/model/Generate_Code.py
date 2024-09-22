@@ -50,6 +50,22 @@ def generate_code_prompt(scenario, task, data=None):
         """
 
     prompt += """
+    **Instructions:**
+
+    - **Understand the Problem**: Carefully read the scenario and task to fully grasp the requirements.
+    - **Generate Complete and Correct Python Code**: Write Python code that fully solves the task, addressing all specified requirements.
+    - **Use Appropriate Libraries**: Utilize relevant Python libraries and modules suitable for the task (e.g., pandas, NumPy, matplotlib, scikit-learn).
+    - **Data Handling**: If data is provided, ensure the code correctly loads, processes, and uses it as per the task requirements.
+    - **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
+    - **Code Quality**:
+        - **Readability**: Write clean and readable code with proper indentation and spacing.
+        - **Comments**: Include comments to explain non-obvious parts of the code.
+        - **Modularity**: Organize the code into functions or classes where appropriate to enhance modularity and reusability.
+    - **Error Handling**: Include error checking and handle potential exceptions to make the code robust and user-friendly.
+    - **Executable Code**: Ensure the code can run as-is without modifications in a standard Python environment (e.g., Jupyter Notebook, IDE).
+    - **Output**: Include code that displays or returns the final results in a clear and readable format, such as printing outputs, plotting graphs, or saving results to files.
+    - **No Additional Explanations**: Provide only the Python code. Do not include explanations, output examples, or additional text beyond the code itself.
+
     The output format should be as follows:
     ```json
     {
