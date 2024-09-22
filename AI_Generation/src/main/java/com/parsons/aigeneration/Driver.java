@@ -9,17 +9,13 @@ import java.io.IOException;
 
 public class Driver {
     public static void main(String[] args) {
-<<<<<<< Updated upstream
-        // 实例化问题生成器
-        PythonProblemGenerator problemGenerator = new PythonProblemGenerator("read/write csv files", "Woolworths Sales Data Analysis ");
-=======
         // Define your variables
         String topic = "read/write csv files";
         String context = "Predicting Sales Based on Advertising Spend";
 
         // Instantiate the problem generator
         PythonProblemGenerator problemGenerator = new PythonProblemGenerator(topic, context);
->>>>>>> Stashed changes
+
         JSONObject problemDetails = problemGenerator.generateProblem();
 
         if (problemDetails == null) {
