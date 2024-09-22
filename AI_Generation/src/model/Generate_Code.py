@@ -34,6 +34,7 @@ def generate_code_prompt(scenario, task, data=None):
         """
 
     prompt += """
+<<<<<<< Updated upstream
     Ensure that the generated Python code meets the following criteria:
 
     1. **Complete Solution:** The code must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs.
@@ -53,6 +54,23 @@ def generate_code_prompt(scenario, task, data=None):
     12. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the results in a clean table or returning the total revenue by category in a sorted list.
     13. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
     14. **Executable Code:** The code should be self-contained and executable as is in an IDE without requiring additional modifications. Ensure that all variables, data paths, and resources are correctly referenced.
+=======
+    **Instructions:**
+
+    - **Understand the Problem**: Carefully read the scenario and task to fully grasp the requirements.
+    - **Generate Complete and Correct Python Code**: Write Python code that fully solves the task, addressing all specified requirements.
+    - **Use Appropriate Libraries**: Utilize relevant Python libraries and modules suitable for the task (e.g., pandas, NumPy, matplotlib, scikit-learn).
+    - **Data Handling**: If data is provided, ensure the code correctly loads, processes, and uses it as per the task requirements.
+    - **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
+    - **Code Quality**:
+        - **Readability**: Write clean and readable code with proper indentation and spacing.
+        - **Comments**: Include comments to explain non-obvious parts of the code.
+        - **Modularity**: Organize the code into functions or classes where appropriate to enhance modularity and reusability.
+    - **Error Handling**: Include error checking and handle potential exceptions to make the code robust and user-friendly.
+    - **Executable Code**: Ensure the code can run as-is without modifications in a standard Python environment (e.g., Jupyter Notebook, IDE).
+    - **Output**: Include code that displays or returns the final results in a clear and readable format, such as printing outputs, plotting graphs, or saving results to files.
+    - **No Additional Explanations**: Provide only the Python code. Do not include explanations, output examples, or additional text beyond the code itself.
+>>>>>>> Stashed changes
 
     The output format should be as follows:
     ```json
@@ -61,7 +79,6 @@ def generate_code_prompt(scenario, task, data=None):
     }
     """
     return prompt
-
 
 def extract_text_from_response(response):
     return response.candidates[0].content.parts[0].text

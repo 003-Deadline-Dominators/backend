@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
 
@@ -85,8 +84,9 @@ public class PythonProblemGenerator {
                         // Save the CSV data to the specified directory, ignoring empty lines
                         saveCsvToFile(filename, csvData);
 
-                        // After saving, update the 'data' field in json to just 'filename.csv'
-                        json.put("data", filename);
+                        // *** Keep the 'data' field unchanged ***
+                        // The 'data' field in the JSON will still contain the full data content
+                        // including both the filename and the CSV data
                     }
                 }
             }

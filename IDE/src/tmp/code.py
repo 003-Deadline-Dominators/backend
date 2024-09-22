@@ -1,4 +1,5 @@
 import pandas as pd
+<<<<<<< Updated upstream
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -38,3 +39,9 @@ predictions = model.predict(X)
 increased_budget = df['Advertising Spend'].values[-1] * 1.20  # Increase by 20%
 predicted_sales = model.predict([[increased_budget]])
 print(f"Predicted sales with increased budget: {predicted_sales[0]}")
+=======
+data = pd.read_csv('advertising_data.csv')
+data['Sales per Dollar Spent'] = data['Sales (USD)'] / data['Advertising Spend (USD)']
+print(data)
+data.to_csv('processed_advertising_data.csv', index=False)
+>>>>>>> Stashed changes
