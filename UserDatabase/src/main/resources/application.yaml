@@ -4,6 +4,7 @@ spring:
     username: root
     password: Xia13752715579!
     driver-class-name: com.mysql.cj.jdbc.Driver
+    
   main:
     web-application-type: servlet
 mybatis:
