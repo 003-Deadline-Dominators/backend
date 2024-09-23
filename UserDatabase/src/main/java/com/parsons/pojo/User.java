@@ -8,7 +8,7 @@ public class User {
     private String ipAddress;
     private boolean correctness;
     private String topicCategory;
-    private int duration;
+    private String duration;
     private String contexts;
     private Timestamp submitTime;
     private Timestamp generateTime;
@@ -37,11 +37,11 @@ public class User {
         this.contexts = contexts;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

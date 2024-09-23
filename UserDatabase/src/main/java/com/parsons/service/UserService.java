@@ -14,7 +14,8 @@ public class UserService {
         this.userMapper = userMapper;
     }
     public void insertUser(User user) {
-        user.encryptIPAddress();
+        String encryptedIPAddress = user.encryptIPAddress();
+        user.setIpAddress(encryptedIPAddress);
         userMapper.insertUser(user);
     }
     public List<User> selectAllUsers() {

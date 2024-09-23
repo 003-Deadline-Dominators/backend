@@ -25,6 +25,7 @@ public class UserController {
     public void insertUser(@RequestBody User user) {
         userService.insertUser(user);
     }
+
     @GetMapping("/all")
     public List<User> getAllUsers() {
         List<User> users = userService.selectAllUsers();

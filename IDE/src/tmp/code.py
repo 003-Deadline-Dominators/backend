@@ -1,3 +1,4 @@
-import pandas as pd
- data = pd.DataFrame([{'Comment': 'Delicious!', 'Rating': 5}, {'Comment': 'The fries were cold', 'Rating': 2}, {'Comment': 'Great value for the price', 'Rating': 4}, {'Comment': 'I love their burgers', 'Rating': 5}, {'Comment': 'Not the best chicken nuggets', 'Rating': 3}])
-print(data)
+import nltk
+paper = "This is a sample academic paper. It contains multiple sentences. Sentence splitting is essential for text analysis. This is the fourth sentence in the paper. And this is the fifth sentence."
+sentences = nltk.sent_tokenize(paper)
+print(sentences)
