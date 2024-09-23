@@ -17,51 +17,37 @@ import java.util.List;
 public class IDEController {
 
     @PostMapping("/submit")
-    public JSONObject handleSubmit(@RequestBody String requestBody) {
-        // Print the request body to the console
+    public String handleSubmit(@RequestBody String requestBody) {
         System.out.println("Received data: " + requestBody);
-        try {
             JSONObject jsonObject = new JSONObject(requestBody);
-            JSONArray blocksArray = jsonObject.getJSONArray("blocks");
+            JSONArray list2 = jsonObject.getJSONArray("list2");
 
-            StringBuilder combinedCode = new StringBuilder();
-            for (int i = 0; i < blocksArray.length(); i++) {
-                combinedCode.append(blocksArray.getString(i)).append("\n");
+            StringBuilder formattedContent = new StringBuilder();
+            for (int i = 0; i < list2.length(); i++) {
+                JSONObject item = list2.getJSONObject(i);
+                String content = item.getString("content");
+                int position = item.getInt("position");
+
+                for (int j = 0; j < position; j++) {
+                    formattedContent.append(" ");  // Indentation
+                }
+                formattedContent.append(content).append("\n");
             }
-
-            String pythonCode = combinedCode.toString().trim();
+            System.out.println(formattedContent);
+            String pythonCode = formattedContent.toString().trim();
             String currentDir = System.getProperty("user.dir");
             String directoryPath = currentDir + "/IDE/src/tmp";
-            String scriptName = "code.py";  // The script name
+            String scriptName = "code.py";
+
             PythonFileWriter writer = new PythonFileWriter();
             DockerExecutor executor = new DockerExecutor("rita6667/gemini-app:latest");
 
-            // Create instance of com.parsons.ide.PythonFileExecutor
             PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
-
-
-            // Execute the Python code and get the result
             JSONObject result = pythonExecutor.executePythonCode(pythonCode, directoryPath, scriptName);
+            return result.toString(); // Return the execution result
 
-            // Print the result
-            if (result != null) {
-                System.out.println("Stdout:");
-                System.out.println(result.getString("stdout"));
-
-                System.out.println("Stderr:");
-                System.out.println(result.getString("stderr"));
-            } else {
-                System.out.println("Execution failed.");
-            }
-
-            // Write the code to a file
-
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }
+
 
 
