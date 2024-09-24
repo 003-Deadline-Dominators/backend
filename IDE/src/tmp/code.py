@@ -1,8 +1,4 @@
 import nltk
-def split_sentence(sentence):
-    words = nltk.word_tokenize(sentence)
-    return words
-
-sentence = 'This is an example sentence to split.'
-words = split_sentence(sentence)
-print(f'Words in the sentence: {words}')
+paper = "This is a sample academic paper. It contains multiple sentences. Sentence splitting is essential for text analysis. This is the fourth sentence in the paper. And this is the fifth sentence."
+sentences = nltk.sent_tokenize(paper)
+print(sentences)
