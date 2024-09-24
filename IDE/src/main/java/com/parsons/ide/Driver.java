@@ -116,12 +116,22 @@ public class Driver {
 //                        "predicted_sales = model.predict([[increased_budget]])\n" +
 //                        "print(f\"Predicted sales with increased budget: {predicted_sales[0]}\")\n";
 
+//        String pythonCode =
+//                "import pandas as pd\n" +
+//                        "data = pd.read_csv('advertising_data.csv')\n" +
+//                        "data['Sales per Dollar Spent'] = data['Sales (USD)'] / data['Advertising Spend (USD)']\n" +
+//                        "print(data)\n" +
+//                        "data.to_csv('processed_advertising_data.csv', index=False)\n";
+
         String pythonCode =
-                "import pandas as pd\n" +
-                        "data = pd.read_csv('advertising_data.csv')\n" +
-                        "data['Sales per Dollar Spent'] = data['Sales (USD)'] / data['Advertising Spend (USD)']\n" +
-                        "print(data)\n" +
-                        "data.to_csv('processed_advertising_data.csv', index=False)\n";
+                "import nltk\n" +
+                        "def split_sentence(sentence):\n" +
+                        "    words = nltk.word_tokenize(sentence)\n" +
+                        "    return words\n" +
+                        "\n" +
+                        "sentence = 'This is an example sentence to split.'\n" +
+                        "words = split_sentence(sentence)\n" +
+                        "print(f'Words in the sentence: {words}')\n";
 
 
         // Define the directory and script name

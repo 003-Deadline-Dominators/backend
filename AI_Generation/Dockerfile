@@ -10,6 +10,15 @@ COPY . /app
 # 安装项目的Python依赖
 RUN pip3 install --no-cache-dir -r requirements.txt
 
+# 安装nltk的数据包
+RUN mkdir -p /usr/local/share/nltk_data && \
+    chmod -R 777 /usr/local/share/nltk_data && \
+    python3 -c "import nltk; nltk.data.path.append('/usr/local/share/nltk_data'); \
+                packages = ['punkt', 'punkt_tab', 'averaged_perceptron_tagger', 'maxent_ne_chunker', 'words', \
+                            'stopwords', 'wordnet', 'omw-1.4', 'vader_lexicon', 'snowball_data']; \
+                [nltk.download(package, quiet=True) for package in packages]"
+
+
 # 将 .env 文件复制到 Docker 容器中 /app/src/model 目录
 COPY src/model/.env /app/src/model/.env
 
