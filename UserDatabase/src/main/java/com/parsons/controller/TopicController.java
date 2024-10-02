@@ -28,4 +28,10 @@ public class TopicController {
         System.out.println(topicTitle);
         return topicService.selectContextsByTopic(topicTitle);
     }
+    @GetMapping("/contexts/{ip}/{topic}")
+    public List<List<String>> getNumberOfTrueContexts(@PathVariable String ip, @PathVariable String topic) {
+        ip = URLDecoder.decode(ip, StandardCharsets.UTF_8);
+        topic = URLDecoder.decode(topic, StandardCharsets.UTF_8);
+        return topicService.numberOfTrueContexts(ip, topic);
+    }
 }
