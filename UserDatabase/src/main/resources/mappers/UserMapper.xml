@@ -22,4 +22,21 @@
         INSERT INTO contexts (context_title, context_description, topic_id)
         VALUES (#{contextTitle}, #{contextDescription}, #{topicId})
     </insert>
+    <select id="SelectNumberOfQuestions" resultType="java.lang.String">
+        SELECT COUNT(*)
+        FROM user_data
+        WHERE DATE(submit_time) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+        GROUP BY DATE(submit_time)
+        ORDER BY DATE(submit_time);
+
+    </select>
+    <select id="SelectNumberOfQuestionsByTopic" resultType="java.lang.String">
+        SELECT COUNT(*)
+        FROM user_data
+        WHERE topic_category = #{topicCategory}
+        AND DATE(submit_time) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+        GROUP BY DATE(submit_time)
+        ORDER BY DATE(submit_time);
+
+    </select>
 </mapper>

@@ -14,7 +14,10 @@ import java.util.List;
 @RequestMapping("/topics")
 public class TopicController {
     private final TopicService topicService;
-    public TopicController(TopicService topicService) { this.topicService = topicService; }
+
+    public TopicController(TopicService topicService) {
+        this.topicService = topicService;
+    }
 
     @GetMapping("/all")
     public List<Topic> getAllTopics() {
@@ -28,6 +31,7 @@ public class TopicController {
         System.out.println(topicTitle);
         return topicService.selectContextsByTopic(topicTitle);
     }
+
     @GetMapping("/contexts/{ip}/{topic}")
     public List<List<String>> getNumberOfTrueContexts(@PathVariable String ip, @PathVariable String topic) {
         ip = URLDecoder.decode(ip, StandardCharsets.UTF_8);

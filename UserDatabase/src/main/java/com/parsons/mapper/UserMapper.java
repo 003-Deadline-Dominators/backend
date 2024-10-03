@@ -14,4 +14,8 @@ public interface UserMapper {
     List<User> selectUsersByTopic(String topic);
     int insertTopic(Topic topic);
     int insertContext(Context context);
+
+    List<String> SelectNumberOfQuestions();
+
+    List<String> SelectNumberOfQuestionsByTopic(String topic);
 }
