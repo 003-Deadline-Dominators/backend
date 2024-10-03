@@ -1,4 +1,8 @@
 package com.parsons.controller;
+import com.parsons.ide.DockerExecutor;
+import com.parsons.ide.PythonFileExecutor;
+import com.parsons.ide.PythonFileWriter;
+import org.json.JSONArray;
 import org.springframework.web.bind.annotation.*;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -6,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.parsons.aigeneration.PythonCodeGenerator;
 import com.parsons.aigeneration.PythonProblemGenerator;
+
+import java.io.IOException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8081")
@@ -34,8 +40,37 @@ public class ProblemController {
 
     @GetMapping("/code")
     public String getCode(@RequestParam String variable1, @RequestParam String variable2) {
-        PythonCodeGenerator codeGenerator = new PythonCodeGenerator(variable1, variable2, data);
-        JSONObject generatedCode = codeGenerator.generateCode();
-        return generatedCode.toString();
+        while (true) {
+            PythonCodeGenerator codeGenerator = new PythonCodeGenerator(variable1, variable2, data);
+            JSONObject generatedCode = codeGenerator.generateCode();
+            JSONArray list2 = generatedCode.getJSONArray("code");
+            StringBuilder formattedContent = new StringBuilder();
+
+            for (int i = 0; i < list2.length(); i++) {
+                formattedContent.append(list2.getString(i)).append("\n");
+            }
+            System.out.println(formattedContent);
+
+            try {
+                String pythonCode = formattedContent.toString().trim();
+                String currentDir = System.getProperty("user.dir");
+                String directoryPath = currentDir + "/IDE/src/tmp";
+                String scriptName = "code.py";
+
+                PythonFileWriter writer = new PythonFileWriter();
+                DockerExecutor executor = new DockerExecutor("rita6667/gemini-app:latest");
+
+                PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
+                JSONObject result = pythonExecutor.executePythonCode(pythonCode, directoryPath, scriptName);
+                System.out.println(result.toString());
+                if (result.get("stdout") != "") {
+                    return generatedCode.toString();
+                }
+            } catch (Exception exp) {
+                System.out.println("Error occured: "
+                        + exp.getMessage());
+            }
+        }
     }
+
 }

@@ -46,5 +46,14 @@ public class UserController {
     public void insertContext(@RequestBody Context context) {
         userService.insertContext(context);
     }
+    @GetMapping("/selectNumberOfQuestions")
+    public List<String> selectNumberOfQuestions() {
+        return userService.SelectNumberOfQuestions();
+    }
+    @GetMapping("/selectNumberOfQuestions/{topic}")
+    public List<String> selectNumberOfQuestionsByTopic(@PathVariable String topic) {
+        System.out.println("Received topic: " + topic);
+        return userService.SelectNumberOfQuestionsByTopic(topic);
+    }
 
 }

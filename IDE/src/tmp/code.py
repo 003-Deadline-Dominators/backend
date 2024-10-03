@@ -1,7 +1,10 @@
-import nltk
-email_text = "This is a sample email. It contains multiple sentences. Let's see how it works."
-def split_email_into_sentences(email_text):
-     sentences = nltk.sent_tokenize(email_text)
-     return sentences
-sentences = split_email_into_sentences(email_text)
-print(f"Sentences in the email: {sentences}")
+import pandas as pd
+sales_data = pd.read_csv('sales_data.csv')
+total_revenue = sales_data['Quantity'] * sales_data['Price']
+revenue_by_category = sales_data.groupby('Category')['Quantity', 'Price'].agg({'Quantity': 'sum', 'Price': 'sum'})
+revenue_by_category['Total Revenue'] = revenue_by_category['Quantity'] * revenue_by_category['Price']
+sorted_revenue = revenue_by_category.sort_values(by='Total Revenue', ascending=False)
+print('Top 5 Best-Selling Products:')
+print(sales_data['Product'].value_counts().head(5))
+print('\nRevenue by Category:')
+print(sorted_revenue[['Total Revenue']])

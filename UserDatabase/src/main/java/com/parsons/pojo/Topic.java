@@ -6,10 +6,12 @@ import lombok.Data;
 public class Topic {
     private String topicTitle;
     private String topicDescription;
+    private String  rating;
 
-    public Topic(String topicTitle, String topicDescription) {
+    public Topic(String topicTitle, String topicDescription, String  rating) {
         this.topicTitle = topicTitle;
         this.topicDescription = topicDescription;
+        this.rating = rating;
     }
 
     public String getTopicTitle() {

@@ -68,10 +68,10 @@ public class User {
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
-    public String encryptIPAddress() {
+    public static String encryptIPAddress(String ipAddress) {
         StringBuilder encrypted = new StringBuilder();
 
-        for (char c : this.ipAddress.toCharArray()) {
+        for (char c : ipAddress.toCharArray()) {
             // convert to ASCII value
             int asciiValue = (int) c;
             // map to a-z
