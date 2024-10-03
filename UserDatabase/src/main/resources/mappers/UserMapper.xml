@@ -23,20 +23,34 @@
         VALUES (#{contextTitle}, #{contextDescription}, #{topicId})
     </insert>
     <select id="SelectNumberOfQuestions" resultType="java.lang.String">
-        SELECT COUNT(*)
-        FROM user_data
-        WHERE DATE(submit_time) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
-        GROUP BY DATE(submit_time)
-        ORDER BY DATE(submit_time);
-
+        WITH RECURSIVE date_series AS (
+            SELECT CURDATE() - INTERVAL 6 DAY AS report_date
+        UNION ALL
+        SELECT report_date + INTERVAL 1 DAY
+        FROM date_series
+        WHERE report_date + INTERVAL 1 DAY &lt;= CURDATE()
+            )
+        SELECT COUNT(ud.submit_time) AS count
+        FROM date_series ds
+            LEFT JOIN user_data ud
+        ON DATE(ud.submit_time) = ds.report_date
+        GROUP BY ds.report_date
+        ORDER BY ds.report_date;
     </select>
     <select id="SelectNumberOfQuestionsByTopic" resultType="java.lang.String">
-        SELECT COUNT(*)
-        FROM user_data
-        WHERE topic_category = #{topicCategory}
-        AND DATE(submit_time) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
-        GROUP BY DATE(submit_time)
-        ORDER BY DATE(submit_time);
-
+        WITH RECURSIVE date_series AS (
+            SELECT CURDATE() - INTERVAL 6 DAY AS report_date
+        UNION ALL
+        SELECT report_date + INTERVAL 1 DAY
+        FROM date_series
+        WHERE report_date + INTERVAL 1 DAY &lt;= CURDATE()
+            )
+        SELECT COUNT(ud.submit_time) AS count
+        FROM date_series ds
+            LEFT JOIN user_data ud
+        ON DATE(ud.submit_time) = ds.report_date
+            AND ud.topic_category = #{topicCategory}
+        GROUP BY ds.report_date
+        ORDER BY ds.report_date;
     </select>
 </mapper>
