@@ -17,12 +17,17 @@ import java.util.List;
 public class IDEController {
 
     @PostMapping("/submit")
-    public String handleSubmit(@RequestBody String requestBody) {
-        System.out.println("Received data: " + requestBody);
+    public String handleSubmit(@ RequestBody String preDefine, @RequestBody String requestBody) {
+        System.out.println("Received data: " + preDefine + requestBody);
+            JSONArray list1 = new JSONArray(preDefine);
             JSONObject jsonObject = new JSONObject(requestBody);
             JSONArray list2 = jsonObject.getJSONArray("list2");
 
             StringBuilder formattedContent = new StringBuilder();
+            for(int j = 0; j < list1.length(); j++) {
+                String content = list1.getString(j);
+                formattedContent.append(content).append("\n");
+            }
             for (int i = 0; i < list2.length(); i++) {
                 JSONObject item = list2.getJSONObject(i);
                 String content = item.getString("content");
@@ -47,6 +52,7 @@ public class IDEController {
             return result.toString(); // Return the execution result
 
     }
+
 }
 
 

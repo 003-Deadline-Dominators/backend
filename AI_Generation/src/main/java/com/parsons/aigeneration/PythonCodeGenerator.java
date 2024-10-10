@@ -60,9 +60,14 @@ public class PythonCodeGenerator {
             }
 
             // Create the final JSON result with both sections
+            JSONArray dataArray = new JSONArray();
             JSONObject result = new JSONObject();
-            result.put("import and data define", importsAndData);
+            String[] datalines = importsAndData.split("\n");
+            for (String dataline : datalines) {
+                dataArray.put(dataline);
+            }
             result.put("code", codeArray);
+            result.put("data", dataArray);
 
             return result;
         } catch (IOException | InterruptedException e) {

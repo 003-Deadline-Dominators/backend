@@ -1,4 +1,5 @@
 package com.parsons.controller;
+import com.parsons.aigeneration.PythonHintsGenerator;
 import com.parsons.ide.DockerExecutor;
 import com.parsons.ide.PythonFileExecutor;
 import com.parsons.ide.PythonFileWriter;
@@ -17,6 +18,9 @@ import java.io.IOException;
 @CrossOrigin(origins = "http://localhost:8081")
 public class ProblemController {
     private String data = "";
+    private String scenario = "";
+    private String task = "";
+    private String code = "";
 
     @GetMapping("/problem")
     public String getProblemDetails(@RequestParam String variable1, @RequestParam String variable2) {
@@ -26,7 +30,8 @@ public class ProblemController {
         if (problemDetails == null) {
             return "Failed to generate problem details.";
         }
-
+        scenario = problemDetails.getString("scenario");
+        task = problemDetails.getString("task");
         // Store the data internally
         data = problemDetails.optString("data").replace("python", "").strip();
 
@@ -44,11 +49,23 @@ public class ProblemController {
             PythonCodeGenerator codeGenerator = new PythonCodeGenerator(variable1, variable2, data);
             JSONObject generatedCode = codeGenerator.generateCode();
             JSONArray list2 = generatedCode.getJSONArray("code");
+            JSONArray data = generatedCode.getJSONArray("data");
+            JSONArray modifiedCode = new JSONArray();
             StringBuilder formattedContent = new StringBuilder();
+            for(int j = 0; j<data.length(); j++) {
+                formattedContent.append(data.getString(j)).append("\n");
+            }
 
             for (int i = 0; i < list2.length(); i++) {
                 formattedContent.append(list2.getString(i)).append("\n");
+                String codeLine = list2.getString(i);
+                // Use regex to remove leading spaces in multiples of 4
+                String trimmedCodeLine = codeLine.replaceAll("^(\\s{4})+", "");
+                // Add the trimmed code line to the modifiedCode array
+                modifiedCode.put(trimmedCodeLine);
             }
+            generatedCode.put("code", modifiedCode);
+            code = formattedContent.toString();
             System.out.println(formattedContent);
 
             try {
@@ -71,6 +88,13 @@ public class ProblemController {
                         + exp.getMessage());
             }
         }
+    }
+    @GetMapping("hint")
+    public String getHint() {
+        PythonHintsGenerator hintGenerator = new PythonHintsGenerator(scenario, task, code);
+        JSONObject generatedHint = hintGenerator.generateHint();
+        System.out.println(generatedHint.toString());
+        return generatedHint.toString();
     }
 
 }

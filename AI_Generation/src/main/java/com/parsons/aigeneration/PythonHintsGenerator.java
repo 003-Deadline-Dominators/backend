@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class PythonHintsGenerator {
@@ -46,9 +48,16 @@ public class PythonHintsGenerator {
 
             JSONObject json = new JSONObject(output.toString());
             String hint = json.getString("hint");
+            String[] hintsArray = hint.split("\n");
+            JSONArray hintJsonArray = new JSONArray();
 
+            for (String hintPart : hintsArray) {
+                hintJsonArray.put(hintPart.trim());  // Trim to remove extra spaces
+            }
+
+// Create a new JSONObject to store the JSONArray
             JSONObject result = new JSONObject();
-            result.put("hint", hint);
+            result.put("hints", hintJsonArray);
 
             return result;
         } catch (IOException | InterruptedException e) {
