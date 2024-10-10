@@ -13,7 +13,7 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 def generate_code_prompt(scenario, task, data=None):
     prompt = f"""
-    You are an AI model tasked with solving a problem based on the following context.
+    You are tasked with generating Python code to solve the following problem.
 
     ### Scenario:
     {scenario}
@@ -22,7 +22,6 @@ def generate_code_prompt(scenario, task, data=None):
     {task}
     """
 
-    # 如果 data 不为空，则包含 Data 部分
     if data:
         prompt += f"""
         ### Data:
@@ -30,22 +29,35 @@ def generate_code_prompt(scenario, task, data=None):
         """
 
     prompt += """
-    Please generate a Python code framework that can address the task described above. Ensure that the code includes:
+    Ensure that the generated Python code meets the following criteria:
 
-    1. Data processing steps (e.g., loading, cleaning, etc.).
-    2. The construction of a linear regression model using appropriate Python libraries (such as scikit-learn).
-    3. Fitting the model to the provided data.
-    4. A step for analyzing the model's coefficients to determine which factors have the strongest influence on the outcome.
-    5. Outputting the model's predictions for the provided data.
-    6. Commenting important parts of the code for clarity.
+    1. **Complete Solution**: The code must fully address all parts of the task with no missing components.
+    2. **Correctness**: The code should be free of errors and runnable in a standard Python environment.
+    3. **Clear Separation of Sections**: The code must be divided into two distinct sections:
+        - **Imports and Data Definition**: All import statements must be placed at the very top, followed by any predefined data (e.g., lists or dictionaries).
+        - **Functional Code**: The rest of the code should follow, including data loading (such as converting predefined data to a DataFrame) and the main logic required to solve the task.
+    4. **Procedural Structure**: Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
+    5. **Libraries**: Import any necessary libraries (e.g., pandas, NumPy, scikit-learn) at the start of the code.
+    6. **Output**: Ensure the code provides clear outputs for the task, such as print statements or returning final results.
+    7. **Robustness**: Handle potential errors, such as missing or malformed data, if applicable.
+    8. **Readable Code**: Maintain clean, readable code with proper indentation and formatting. Avoid placing symbols like parentheses or braces on separate lines.
+    9. **Standalone Code**: The code should be executable as-is without any additional modifications.
+    10 **Output**: Include code that displays or returns the final results in a clear and readable format, such as printing outputs, or saving results to files.
+    11. **No Additional Explanations**: Provide only the Python code. Do not include explanations, output examples, or additional text beyond the code itself.
 
     The output format should be as follows:
     ```json
     {
+      "import and data define": "import statements and predefined data here",
       "code": "Generated Python Code"
     }
+    ```
+
+    Please ensure that the AI model generates code that addresses all the points mentioned above, placing imports and any predefined data (like lists or dictionaries) at the top, and functional code (including data loading) afterward.
     """
+
     return prompt
+
 
 def extract_text_from_response(response):
     return response.candidates[0].content.parts[0].text

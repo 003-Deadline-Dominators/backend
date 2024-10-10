@@ -17,30 +17,13 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 def generate_code_prompt(scenario, task, data=None):
     prompt = f"""
-    You are an AI model tasked with solving a problem based on the following context.
+    You are tasked with generating Python code to solve the following problem.
 
     ### Scenario:
     {scenario}
 
     ### Task:
     {task}
-
-    Ensure that the generated Python code meets the following criteria:
-
-    1. **Complete Solution:** The code must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs.
-    2. **Correctness:** The code should be error-free and capable of running successfully on the provided dataset (or a similar dataset structure).
-    3. **Structured Code:** The solution must include:
-        - Steps for loading and processing the data (if applicable).
-        - Any intermediate calculations or transformations needed to meet the task requirements.
-        - Final calculations or results that directly solve the task.
-    4. **Modular Approach:** Where applicable, break the solution into functions or logical blocks to enhance readability and reusability.
-    5. **Libraries:** If external libraries (like pandas, NumPy, etc.) are required, import them at the beginning of the code and explain their use where necessary.
-    6. **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
-    7. **Robustness:** Handle potential errors, such as missing or malformed data, if they are likely to occur in the dataset.
-    8. **Intermediate Steps:** Make sure the code includes all steps required for data loading, processing, and transforming it before reaching the final output. Address how data is cleaned or modified before any analysis.
-    9. **Error Handling:** Include proper error handling for any potential issues, such as missing values, incorrect data types, or unexpected data structures, and provide informative error messages.
-    10. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the top 5 best-selling products in a clean table or returning the total revenue by category in a sorted list.
-    11. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
     """
 
     if data:
@@ -50,33 +33,40 @@ def generate_code_prompt(scenario, task, data=None):
         """
 
     prompt += """
-    **Instructions:**
+    Ensure that the generated Python code meets the following criteria:
 
-    - **Understand the Problem**: Carefully read the scenario and task to fully grasp the requirements.
-    - **Generate Complete and Correct Python Code**: Write Python code that fully solves the task, addressing all specified requirements.
-    - **Use Appropriate Libraries**: Utilize relevant Python libraries and modules suitable for the task (e.g., pandas, NumPy, matplotlib, scikit-learn).
-    - **Data Handling**: If data is provided, ensure the code correctly loads, processes, and uses it as per the task requirements.
-    - **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
-    - **Code Quality**:
-        - **Readability**: Write clean and readable code with proper indentation and spacing.
-        - **Comments**: Include comments to explain non-obvious parts of the code.
-        - **Modularity**: Organize the code into functions or classes where appropriate to enhance modularity and reusability.
-    - **Error Handling**: Include error checking and handle potential exceptions to make the code robust and user-friendly.
-    - **Executable Code**: Ensure the code can run as-is without modifications in a standard Python environment (e.g., Jupyter Notebook, IDE).
-    - **Output**: Include code that displays or returns the final results in a clear and readable format, such as printing outputs, plotting graphs, or saving results to files.
-    - **No Additional Explanations**: Provide only the Python code. Do not include explanations, output examples, or additional text beyond the code itself.
+    1. **Complete Solution:** The code must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs.
+    2. **Correctness:** The code should be error-free and capable of running successfully on the provided dataset (or a similar dataset structure).
+    3. **Structured Code:** The solution must include:
+        - All import statements must be placed at the very top.
+        - Steps for loading and processing the data (if applicable).  
+        - Any intermediate calculations or transformations needed to meet the task requirements.
+        - Final calculations or results that directly solve the task.
+    4. **Modular Approach:** Where applicable, break the solution into functions or logical blocks to enhance readability and reusability.
+    5. **Libraries:** If external libraries (like pandas, NumPy, etc.) are required, import them at the beginning of the code and explain their use where necessary.
+    6. **Procedural Structure**: Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
+    6. **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
+    7. **Robustness:** Handle potential errors, such as missing or malformed data, if they are likely to occur in the dataset.
+    8. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the top 5 best-selling products in a clean table or returning the total revenue by category in a sorted list.
+    9. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
+    10. **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
+    11. **Clear Separation of Sections**: The code must be divided into two distinct sections:
+        - **Imports and Data Definition**: All import statements must be placed at the very top, followed by any predefined data (e.g., lists or dictionaries).
+        - **Code**: The rest of the code should follow, including data loading (such as converting predefined data to a DataFrame) and the main logic required to solve the task.
 
     The output format should be as follows:
     ```json
     {
+      "import and data define": "import statements and predefined data here",
       "code": "Generated Python Code"
     }
     ```
 
-    Please ensure that the AI model generates code that addresses all the points mentioned above and produces a solution that can run smoothly without issues.
+    Please ensure that the AI model generates code that addresses all the points mentioned above, placing imports and any predefined data (like lists or dictionaries) at the top, and functional code (including data loading) afterward.
     """
 
     return prompt
+
 
 
 def extract_text_from_response(response):
@@ -96,12 +86,24 @@ def clean_code(code):
 def extract_code_content(code_json_str):
     cleaned_str = code_json_str.replace("```json", "").replace("```", "").strip()
     code_data = json.loads(cleaned_str)
+
+    # Extract import and data define
+    import_and_data = code_data.get("import and data define", "").replace('python', '').strip()
+    cleaned_import_and_data = clean_code(import_and_data)
+
+    # Extract code
     code = code_data.get("code", "").replace('python', '').strip()
 
-    # 清理代码
+    # Clean the code
     cleaned_code = clean_code(code)
 
-    print(json.dumps({"code": cleaned_code}))
+    # Output the result in the required format
+    output = {
+        "import and data define": cleaned_import_and_data,
+        "code": cleaned_code
+    }
+
+    print(json.dumps(output, indent=4))
 
 def main():
     scenario = sys.argv[1]  # 从命令行参数获取 scenario

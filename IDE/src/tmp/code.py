@@ -1,10 +1,16 @@
 import pandas as pd
-sales_data = pd.read_csv('sales_data.csv')
-total_revenue = sales_data['Quantity'] * sales_data['Price']
-revenue_by_category = sales_data.groupby('Category')['Quantity', 'Price'].agg({'Quantity': 'sum', 'Price': 'sum'})
-revenue_by_category['Total Revenue'] = revenue_by_category['Quantity'] * revenue_by_category['Price']
-sorted_revenue = revenue_by_category.sort_values(by='Total Revenue', ascending=False)
-print('Top 5 Best-Selling Products:')
-print(sales_data['Product'].value_counts().head(5))
-print('\nRevenue by Category:')
-print(sorted_revenue[['Total Revenue']])
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+data = pd.read_csv('advertising.csv')
+X = data[['TV', 'Radio', 'Newspaper']]
+y = data['Sales']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print('Coefficients:', model.coef_)
+print('Intercept:', model.intercept_)
+print('R-squared:', model.score(X_test, y_test))
+new_campaign = [[150, 50, 20]]
+predicted_sales = model.predict(new_campaign)
+print('Predicted Sales:', predicted_sales[0])

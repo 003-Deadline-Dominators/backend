@@ -5,34 +5,31 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class PythonCodeGenerator {
+public class PythonHintsGenerator {
     private String scenario;
     private String task;
-    private String data;
+    private String originalCode;
 
     // 构造函数
-    public PythonCodeGenerator(String scenario, String task, String data) {
+    public PythonHintsGenerator(String scenario, String task, String originalCode) {
         this.scenario = scenario;
         this.task = task;
-        this.data = data;
+        this.originalCode = originalCode;
     }
 
-    // 生成代码的方法
-    public JSONObject generateCode() {
+    // 生成提示的方法
+    public JSONObject generateHint() {
         List<String> command = new ArrayList<>();
         command.add("docker");
         command.add("run");
         command.add("--rm");
         command.add("rita6667/gemini-app:latest");  // Docker 镜像名
-        command.add("src/model/Generate_Code.py");
+        command.add("src/model/Generate_Hint.py");  // Python 生成提示的脚本
         command.add(scenario);
         command.add(task);
-        if (data != null && !data.isEmpty()) {
-            command.add(data);
-        }
+        command.add(originalCode);
 
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         try {
@@ -47,22 +44,11 @@ public class PythonCodeGenerator {
             }
             process.waitFor();
 
-            // Parse the JSON response from the Python script
             JSONObject json = new JSONObject(output.toString());
-            String importsAndData = json.getString("import and data define");
-            String code = json.getString("code");
+            String hint = json.getString("hint");
 
-            // Split the code into lines and convert it into a JSONArray
-            JSONArray codeArray = new JSONArray();
-            String[] codeLines = code.split("\n");
-            for (String codeLine : codeLines) {
-                codeArray.put(codeLine);
-            }
-
-            // Create the final JSON result with both sections
             JSONObject result = new JSONObject();
-            result.put("import and data define", importsAndData);
-            result.put("code", codeArray);
+            result.put("hint", hint);
 
             return result;
         } catch (IOException | InterruptedException e) {
