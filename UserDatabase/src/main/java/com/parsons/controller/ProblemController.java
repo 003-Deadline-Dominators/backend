@@ -46,9 +46,9 @@ public class ProblemController {
         task = problemDetails.optString("task", "");
         data = problemDetails.optString("data", "").replace("python", "").strip();
 
-        System.out.println("scenario is: " + scenario);
-        System.out.println("task is: " + task);
-        System.out.println("data is: " + data);
+        System.out.println("generated scenario is: " + scenario);
+        System.out.println("generated task is: " + task);
+        System.out.println("generated data is: " + data);
 
         // 如果 variable1 是 "read/write csv files"，将 data 设置为 null
         if ("read/write csv files".equals(variable1)) {
@@ -64,6 +64,10 @@ public class ProblemController {
         // 初始化 StringBuilder
         StringBuilder formattedContent = new StringBuilder();
         StringBuilder importAndDataDefine = new StringBuilder();
+
+        System.out.println("using scenario is: " + scenario);
+        System.out.println("using task is: " + task);
+        System.out.println("using data is: " + data);
 
         // 使用 scenario, task 和 data 生成代码
         PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
