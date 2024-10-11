@@ -14,6 +14,7 @@ public class Driver {
         // Define your variables
         String topic = "Linear Regression";
         String context = "Forecasting Demand Based on Economic Indicators";
+        StringBuilder importAndDataDefine = new StringBuilder();
 
         // Instantiate the problem generator
         PythonProblemGenerator problemGenerator = new PythonProblemGenerator(topic, context);
@@ -45,38 +46,69 @@ public class Driver {
         PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
         JSONObject generatedCode = codeGenerator.generateCode();
 
+        // System.out.println(generatedCode.toString(4));
+
         if (generatedCode == null) {
             System.out.println("Failed to generate code.");
             return;
         }
 
         // Check if the "import and data define" key exists before attempting to print it
-        if (generatedCode.has("import and data define")) {
-            String importAndDataDefine = generatedCode.getString("import and data define");
+//        if (generatedCode.has("import and data define")) {
+//            String importAndDataDefine = generatedCode.getString("import and data define");
+//            System.out.println("Imports and Data Definition:");
+//            System.out.println(importAndDataDefine);
+//        } else {
+//            System.out.println("\"import and data define\" not found in the generated code.");
+//        }
+//
+//        // Check if the "code" key exists before attempting to print it
+//        if (generatedCode.has("code")) {
+//            JSONArray codeArray = generatedCode.getJSONArray("code");
+//            System.out.println("\nGenerated Code:");
+//            for (int i = 0; i < codeArray.length(); i++) {
+//                System.out.println(codeArray.getString(i));
+//            }
+//        } else {
+//            System.out.println("\"code\" not found in the generated code.");
+//        }
+
+        if (generatedCode.has("data")) {
+            // 获取 JSONArray 数据
+            JSONArray dataArray = generatedCode.getJSONArray("data");
+
+            // 将 JSONArray 中的每一行都添加到 StringBuilder 中，形成完整的代码部分
+            importAndDataDefine = new StringBuilder();
+            for (int i = 0; i < dataArray.length(); i++) {
+                importAndDataDefine.append(dataArray.getString(i)).append("\n");
+            }
+
+            // 打印 Imports 和 Data 定义部分
             System.out.println("Imports and Data Definition:");
-            System.out.println(importAndDataDefine);
-        } else {
-            System.out.println("\"import and data define\" not found in the generated code.");
+            System.out.println(importAndDataDefine.toString());
         }
 
-        // Check if the "code" key exists before attempting to print it
-        if (generatedCode.has("code")) {
-            JSONArray codeArray = generatedCode.getJSONArray("code");
-            System.out.println("\nGenerated Code:");
-            for (int i = 0; i < codeArray.length(); i++) {
-                System.out.println(codeArray.getString(i));
-            }
-        } else {
-            System.out.println("\"code\" not found in the generated code.");
+        JSONArray codeArray = generatedCode.getJSONArray("code");
+
+        StringBuilder formattedContent = new StringBuilder();
+
+        formattedContent.append(importAndDataDefine);
+
+        for (int i = 0; i < codeArray.length(); i++) {
+            formattedContent.append(codeArray.getString(i)).append("\n");
         }
+
+
+        System.out.println("Combined Data and Code:");
+        System.out.println(formattedContent.toString());
 
 
         // Extract the generated code from the JSONArray and join it into a single string
         List<String> codeLines = new ArrayList<>();
         if (generatedCode.has("code")) {
-            JSONArray codeArray = generatedCode.getJSONArray("code");
-            for (int i = 0; i < codeArray.length(); i++) {
-                codeLines.add(codeArray.getString(i));  // Ensure each line is a string
+            JSONArray code = generatedCode.getJSONArray("code");
+            for (int i = 0; i < code.length(); i++) {
+                codeLines.add(code.getString(i));  // Ensure each line is a string
             }
 
             // Join the lines into a complete code string
