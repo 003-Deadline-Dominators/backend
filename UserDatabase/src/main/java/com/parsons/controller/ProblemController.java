@@ -60,7 +60,7 @@ public class ProblemController {
     }
 
     @GetMapping("/code")
-    public String getCode(@RequestParam String variable1, @RequestParam String variable2) {
+    public String getCode() {
         // 初始化 StringBuilder
         StringBuilder formattedContent = new StringBuilder();
         StringBuilder importAndDataDefine = new StringBuilder();

@@ -12,17 +12,18 @@ import com.parsons.ide.DockerExecutor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.parsons.pojo.SubmitRequest;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:8081")
 public class IDEController {
 
     @PostMapping("/submit")
-    public String handleSubmit(@RequestParam String preDefine, @RequestParam String requestBody) {
-        System.out.println("Received data: " + preDefine + requestBody);
+    public String handleSubmit(@RequestBody SubmitRequest request) {
+        System.out.println("Received data: " + request.getPreDefine() + request.getRequestBody());
 
-        JSONArray list1 = new JSONArray(preDefine);
-        JSONObject jsonObject = new JSONObject(requestBody);
-        JSONArray list2 = jsonObject.getJSONArray("list2");
+        JSONArray list1 = new JSONArray(request.getPreDefine());
+        JSONArray list2 = new JSONArray(request.getRequestBody());
 
         StringBuilder formattedContent = new StringBuilder();
         for (int j = 0; j < list1.length(); j++) {
@@ -35,7 +36,7 @@ public class IDEController {
             int position = item.getInt("position");
 
             for (int j = 0; j < position; j++) {
-                formattedContent.append(" ");  // 缩进
+                formattedContent.append(" ");  // indentation
             }
             formattedContent.append(content).append("\n");
         }
@@ -51,9 +52,8 @@ public class IDEController {
         PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
         JSONObject result = pythonExecutor.executePythonCode(pythonCode, directoryPath, scriptName);
 
-        return result.toString(); // 返回执行结果
+        return result.toString(); // return execution result
     }
-
 }
 
 

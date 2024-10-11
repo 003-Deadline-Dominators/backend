@@ -1,40 +1,26 @@
 import pandas as pd
-import statsmodels.formula.api as sm
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score, mean_squared_error
 import matplotlib.pyplot as plt
-data = [
-    {"Income": 50000, "Education Level": "High School Diploma"},
-    {"Income": 75000, "Education Level": "Bachelor's Degree"},
-    {"Income": 100000, "Education Level": "Master's Degree"},
-    {"Income": 125000, "Education Level": "Doctoral Degree"},
-    {"Income": 45000, "Education Level": "High School Diploma"},
-    {"Income": 65000, "Education Level": "Bachelor's Degree"},
-    {"Income": 90000, "Education Level": "Master's Degree"},
-    {"Income": 110000, "Education Level": "Doctoral Degree"},
-    {"Income": 55000, "Education Level": "High School Diploma"},
-    {"Income": 80000, "Education Level": "Bachelor's Degree"},
-    {"Income": 105000, "Education Level": "Master's Degree"},
-    {"Income": 130000, "Education Level": "Doctoral Degree"}
-]
+data = {'Month': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        'Sales': [5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500],
+        'Advertising': [1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200]}
 df = pd.DataFrame(data)
-education_levels = {
-    "High School Diploma": 1,
-    "Bachelor's Degree": 2,
-    "Master's Degree": 3,
-    "Doctoral Degree": 4
-}
-df['Education Level Code'] = df['Education Level'].map(education_levels)
-model = sm.ols('Income ~ Education Level Code', data=df)
-results = model.fit()
-print(results.summary())
-print('Intercept:', results.params[0])
-print('Slope:', results.params[1])
-new_data = pd.DataFrame({'Education Level Code': [1, 2, 3, 4]})
-predicted_income = results.predict(new_data)
-print('Predicted Income for Different Education Levels:')
-print(predicted_income)
-plt.scatter(df['Education Level Code'], df['Income'])
-plt.plot(new_data['Education Level Code'], predicted_income, color='red')
-plt.xlabel('Education Level Code')
-plt.ylabel('Income')
-plt.title('Relationship between Education Level and Income')
+X = df[['Advertising']]
+y = df['Sales']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+r_squared = r2_score(y_test, y_pred)
+mean_squared_error = mean_squared_error(y_test, y_pred)
+print(f'R-squared: {r_squared}')
+print(f'Mean Squared Error: {mean_squared_error}')
+plt.scatter(X_test['Advertising'], y_test, label='Actual Sales')
+plt.plot(X_test['Advertising'], y_pred, color='red', label='Predicted Sales')
+plt.xlabel('Advertising Spend')
+plt.ylabel('Sales')
+plt.legend()
+plt.title('Predicted vs. Actual Sales')
 plt.show()
