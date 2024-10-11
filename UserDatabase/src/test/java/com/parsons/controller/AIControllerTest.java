@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(ProblemController.class)
-public class ProblemControllerTest {
+@WebMvcTest(AIController.class)
+public class AIControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
