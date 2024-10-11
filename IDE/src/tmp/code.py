@@ -1,8 +1,40 @@
 import pandas as pd
-sales_data = [{"product_id": "A1", "product_name": "Laptop", "category": "Electronics", "quantity_sold": 100, "price": 1200}, {"product_id": "B2", "product_name": "Tablet", "category": "Electronics", "quantity_sold": 50, "price": 300}, {"product_id": "C3", "product_name": "T-Shirt", "category": "Clothing", "quantity_sold": 200, "price": 20}, {"product_id": "D4", "product_name": "Jeans", "category": "Clothing", "quantity_sold": 150, "price": 50}, {"product_id": "E5", "product_name": "Book", "category": "Books", "quantity_sold": 100, "price": 15}]
-df = pd.DataFrame(sales_data)
-df['revenue'] = df['quantity_sold'] * df['price']
-top_sellers = df.sort_values(by=['revenue'], ascending=False)
-top_5_products = top_sellers.head(5)
-print("Top 5 Best-Selling Products:")
-print(top_5_products[['product_name', 'revenue']])
+import statsmodels.formula.api as sm
+import matplotlib.pyplot as plt
+data = [
+    {"Income": 50000, "Education Level": "High School Diploma"},
+    {"Income": 75000, "Education Level": "Bachelor's Degree"},
+    {"Income": 100000, "Education Level": "Master's Degree"},
+    {"Income": 125000, "Education Level": "Doctoral Degree"},
+    {"Income": 45000, "Education Level": "High School Diploma"},
+    {"Income": 65000, "Education Level": "Bachelor's Degree"},
+    {"Income": 90000, "Education Level": "Master's Degree"},
+    {"Income": 110000, "Education Level": "Doctoral Degree"},
+    {"Income": 55000, "Education Level": "High School Diploma"},
+    {"Income": 80000, "Education Level": "Bachelor's Degree"},
+    {"Income": 105000, "Education Level": "Master's Degree"},
+    {"Income": 130000, "Education Level": "Doctoral Degree"}
+]
+df = pd.DataFrame(data)
+education_levels = {
+    "High School Diploma": 1,
+    "Bachelor's Degree": 2,
+    "Master's Degree": 3,
+    "Doctoral Degree": 4
+}
+df['Education Level Code'] = df['Education Level'].map(education_levels)
+model = sm.ols('Income ~ Education Level Code', data=df)
+results = model.fit()
+print(results.summary())
+print('Intercept:', results.params[0])
+print('Slope:', results.params[1])
+new_data = pd.DataFrame({'Education Level Code': [1, 2, 3, 4]})
+predicted_income = results.predict(new_data)
+print('Predicted Income for Different Education Levels:')
+print(predicted_income)
+plt.scatter(df['Education Level Code'], df['Income'])
+plt.plot(new_data['Education Level Code'], predicted_income, color='red')
+plt.xlabel('Education Level Code')
+plt.ylabel('Income')
+plt.title('Relationship between Education Level and Income')
+plt.show()
