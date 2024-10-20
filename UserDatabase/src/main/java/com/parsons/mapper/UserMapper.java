@@ -18,4 +18,10 @@ public interface UserMapper {
     List<String> SelectNumberOfQuestions();
 
     List<String> SelectNumberOfQuestionsByTopic(String topic);
+
+    List<User> selectUsersByTopicDESC(String topic);
+
+    List<User> selectUsersByTopicASC(String topic);
+
+    List<User> selectAllUsersASC();
 }

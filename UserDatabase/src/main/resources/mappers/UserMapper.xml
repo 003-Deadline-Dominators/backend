@@ -5,12 +5,23 @@
 <mapper namespace="com.parsons.mapper.UserMapper">
     <!-- SQL statements go here -->
     <select id="selectAllUsers" resultType="com.parsons.pojo.User">
-        SELECT * FROM user_data
+        SELECT * FROM user_data ORDER BY submit_time DESC
+    </select>
+    <select id="selectAllUsersASC" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data ORDER BY submit_time ASC
     </select>
     <insert id="insertUser" parameterType="com.parsons.pojo.User">
         INSERT INTO user_data (ip_address, correctness, topic_category, duration, contexts, submit_time, generate_time)
         VALUES (#{ipAddress}, #{correctness}, #{topicCategory}, #{duration}, #{contexts}, #{submitTime}, #{generateTime})
     </insert>
+    <select id="selectUsersByTopicDESC" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data WHERE topic_category = #{topicCategory}
+        ORDER BY submit_time DESC
+    </select>
+    <select id="selectUsersByTopicASC" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data WHERE topic_category = #{topicCategory}
+        ORDER BY submit_time
+    </select>
     <select id="selectUsersByTopic" resultType="com.parsons.pojo.User">
         SELECT * FROM user_data WHERE topic_category = #{topicCategory}
     </select>

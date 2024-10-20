@@ -55,5 +55,20 @@ public class UserController {
         System.out.println("Received topic: " + topic);
         return userService.SelectNumberOfQuestionsByTopic(topic);
     }
-
+    @GetMapping("/selectUsersByTopicDESC/{topic}/{SortBy}")
+    public List<User> selectUsersByTopicDESC(@PathVariable String topic, @PathVariable String SortBy) {
+        System.out.println(topic);
+        if (SortBy.equals("Oldest")) {
+            if(topic.equals("All topics")) {
+                return userService.selectAllUsersASC();
+            }
+            return userService.selectUsersByTopicASC(topic);
+        }
+        else{
+            if (topic.equals("All topics")) {
+                return userService.selectAllUsers();
+        }
+        return userService.selectUsersByTopicDESC(topic);
+    }
+    }
 }
