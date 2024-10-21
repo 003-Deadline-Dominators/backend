@@ -70,7 +70,9 @@ public class User {
     }
     public static String encryptIPAddress(String ipAddress) {
         StringBuilder encrypted = new StringBuilder();
-
+        if (ipAddress == null) {
+            return null;
+        }
         for (char c : ipAddress.toCharArray()) {
             // convert to ASCII value
             int asciiValue = (int) c;

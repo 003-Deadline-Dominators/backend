@@ -8,6 +8,7 @@ public class Topic {
     private String topicDescription;
     private String  rating;
 
+    public Topic(){}
     public Topic(String topicTitle, String topicDescription, String  rating) {
         this.topicTitle = topicTitle;
         this.topicDescription = topicDescription;
