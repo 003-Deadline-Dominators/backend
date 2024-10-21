@@ -12,4 +12,12 @@ public class Context {
         this.contextTitle = contextTitle;
         this.topicTitle = topicTitle;
     }
+
+    public String getContextTitle() {
+        return contextTitle;
+    }
+
+    public String getTopicTitle() {
+        return topicTitle;
+    }
 }

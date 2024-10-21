@@ -5,12 +5,23 @@
 <mapper namespace="com.parsons.mapper.UserMapper">
     <!-- SQL statements go here -->
     <select id="selectAllUsers" resultType="com.parsons.pojo.User">
-        SELECT * FROM user_data
+        SELECT * FROM user_data ORDER BY submit_time DESC
+    </select>
+    <select id="selectAllUsersASC" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data ORDER BY submit_time ASC
     </select>
     <insert id="insertUser" parameterType="com.parsons.pojo.User">
         INSERT INTO user_data (ip_address, correctness, topic_category, duration, contexts, submit_time, generate_time)
         VALUES (#{ipAddress}, #{correctness}, #{topicCategory}, #{duration}, #{contexts}, #{submitTime}, #{generateTime})
     </insert>
+    <select id="selectUsersByTopicDESC" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data WHERE topic_category = #{topicCategory}
+        ORDER BY submit_time DESC
+    </select>
+    <select id="selectUsersByTopicASC" resultType="com.parsons.pojo.User">
+        SELECT * FROM user_data WHERE topic_category = #{topicCategory}
+        ORDER BY submit_time
+    </select>
     <select id="selectUsersByTopic" resultType="com.parsons.pojo.User">
         SELECT * FROM user_data WHERE topic_category = #{topicCategory}
     </select>
@@ -22,4 +33,35 @@
         INSERT INTO contexts (context_title, context_description, topic_id)
         VALUES (#{contextTitle}, #{contextDescription}, #{topicId})
     </insert>
+    <select id="SelectNumberOfQuestions" resultType="java.lang.String">
+        WITH RECURSIVE date_series AS (
+            SELECT CURDATE() - INTERVAL 6 DAY AS report_date
+        UNION ALL
+        SELECT report_date + INTERVAL 1 DAY
+        FROM date_series
+        WHERE report_date + INTERVAL 1 DAY &lt;= CURDATE()
+            )
+        SELECT COUNT(ud.submit_time) AS count
+        FROM date_series ds
+            LEFT JOIN user_data ud
+        ON DATE(ud.submit_time) = ds.report_date
+        GROUP BY ds.report_date
+        ORDER BY ds.report_date;
+    </select>
+    <select id="SelectNumberOfQuestionsByTopic" resultType="java.lang.String">
+        WITH RECURSIVE date_series AS (
+            SELECT CURDATE() - INTERVAL 6 DAY AS report_date
+        UNION ALL
+        SELECT report_date + INTERVAL 1 DAY
+        FROM date_series
+        WHERE report_date + INTERVAL 1 DAY &lt;= CURDATE()
+            )
+        SELECT COUNT(ud.submit_time) AS count
+        FROM date_series ds
+            LEFT JOIN user_data ud
+        ON DATE(ud.submit_time) = ds.report_date
+            AND ud.topic_category = #{topicCategory}
+        GROUP BY ds.report_date
+        ORDER BY ds.report_date;
+    </select>
 </mapper>

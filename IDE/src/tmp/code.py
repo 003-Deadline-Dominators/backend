@@ -1,11 +1,10 @@
 import pandas as pd
-data = pd.read_csv('data.csv')
-for product in data['Product'].unique():
-data['Product'] = data['Product'].str.strip().str.lower()
-mean_rating = product_data['Rating'].mean()
-product_data = data[data['Product'] == product]
-data['Rating'] = pd.to_numeric(data['Rating'], errors='coerce')
-data.loc[(data['Product'] == product) & (data['Rating'].isna()), 'Rating'] = mean_rating
-data = data[data['Rating'].between(1, 5, inclusive='both')]
-data.drop_duplicates(inplace=True)
-data.to_csv('cleaned_data.csv', index=False)
+orders = pd.DataFrame({'order_id': [1, 2, 3, 4, 5],
+                         'product_id': [101, 102, 103, 101, 102],
+                         'quantity': [2, 1, 3, 4, 2],
+                         'price': [10.0, 20.0, 15.0, 10.0, 20.0]})
+def calculate_total_revenue(orders):
+    total_revenue = orders['quantity'] * orders['price']
+    return total_revenue.sum()
+total_revenue = calculate_total_revenue(orders)
+print(f'Total Revenue: ${total_revenue:.2f}')

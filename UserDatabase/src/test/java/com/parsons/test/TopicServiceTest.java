@@ -29,7 +29,7 @@ public class TopicServiceTest {
     @Test
     public void testGetAllTopics() {
         // 模拟 Mapper 返回的结果
-        List<Topic> mockTopics = Arrays.asList(new Topic("1", "Topic 1"), new Topic("2", "Topic 2"));
+        List<Topic> mockTopics = Arrays.asList(new Topic("1", "Topic 1", "3"), new Topic("2", "Topic 2", "3"));
         when(topicMapper.selectAllTopics()).thenReturn(mockTopics);
 
         // 调用被测试方法

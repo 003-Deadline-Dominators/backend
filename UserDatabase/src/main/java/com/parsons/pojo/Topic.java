@@ -6,17 +6,12 @@ import lombok.Data;
 public class Topic {
     private String topicTitle;
     private String topicDescription;
-<<<<<<< Updated upstream
-=======
     private String  rating;
-    public Topic() {
 
-    }
->>>>>>> Stashed changes
-
-    public Topic(String topicTitle, String topicDescription) {
+    public Topic(String topicTitle, String topicDescription, String  rating) {
         this.topicTitle = topicTitle;
         this.topicDescription = topicDescription;
+        this.rating = rating;
     }
 
     public String getTopicTitle() {
