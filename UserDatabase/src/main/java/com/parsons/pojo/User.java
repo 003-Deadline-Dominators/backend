@@ -70,8 +70,15 @@ public class User {
     }
     public String encryptIPAddress() {
         StringBuilder encrypted = new StringBuilder();
+<<<<<<< Updated upstream
 
         for (char c : this.ipAddress.toCharArray()) {
+=======
+        if (ipAddress == null) {
+            return null;
+        }
+        for (char c : ipAddress.toCharArray()) {
+>>>>>>> Stashed changes
             // convert to ASCII value
             int asciiValue = (int) c;
             // map to a-z
