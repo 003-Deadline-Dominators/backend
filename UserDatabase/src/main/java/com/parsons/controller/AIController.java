@@ -8,6 +8,7 @@ import com.parsons.ide.PythonFileExecutor;
 import com.parsons.ide.PythonFileWriter;
 import com.parsons.pojo.SubmitRequest;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,40 +27,44 @@ public class AIController {
 
     @GetMapping("/problem")
     public String getProblemDetails(@RequestParam String variable1, @RequestParam String variable2) {
-        // 初始化问题生成器
-        PythonProblemGenerator problemGenerator = new PythonProblemGenerator(variable1, variable2);
-        JSONObject problemDetails;
+        while (true) { // Start the retry loop
+            try {
+                // 初始化问题生成器
+                PythonProblemGenerator problemGenerator = new PythonProblemGenerator(variable1, variable2);
+                JSONObject problemDetails = problemGenerator.generateProblem();  // Generate problem
 
-        // 尝试生成问题并捕获异常
-        try {
-            problemDetails = problemGenerator.generateProblem();
-        } catch (Exception e) {
-            System.out.println("Error generating problem: " + e.getMessage());
-            return "Failed to generate problem details: " + e.getMessage();
+                // 检查生成的问题是否为空或无效
+                if (problemDetails == null || problemDetails.isEmpty()) {
+                    return "Failed to generate problem details: Empty or invalid response.";
+                }
+
+                // 保存 scenario, task 和 data 到类级别变量中
+                scenario = problemDetails.optString("scenario", "");
+                task = problemDetails.optString("task", "");
+                data = problemDetails.optString("data", "").replace("python", "").strip();
+
+                System.out.println("generated scenario is: " + scenario);
+                System.out.println("generated task is: " + task);
+                System.out.println("generated data is: " + data);
+
+                // 如果 variable1 是 "read/write csv files"，将 data 设置为 null
+                if ("read/write csv files".equals(variable1)) {
+                    problemDetails.put("data", JSONObject.NULL);
+                }
+
+                // 返回问题的 JSON 字符串
+                return problemDetails.toString();
+
+            } catch (JSONException e) {
+                System.out.println("JSON error encountered: " + e.getMessage());
+                // Retry automatically
+            } catch (Exception e) {
+                System.out.println("Error generating problem: " + e.getMessage());
+                return "Failed to generate problem details: " + e.getMessage();
+            }
         }
-
-        // 检查生成的问题是否为空或无效
-        if (problemDetails == null || problemDetails.isEmpty()) {
-            return "Failed to generate problem details: Empty or invalid response.";
-        }
-
-        // 保存 scenario, task 和 data 到类级别变量中
-        scenario = problemDetails.optString("scenario", "");
-        task = problemDetails.optString("task", "");
-        data = problemDetails.optString("data", "").replace("python", "").strip();
-
-        System.out.println("generated scenario is: " + scenario);
-        System.out.println("generated task is: " + task);
-        System.out.println("generated data is: " + data);
-
-        // 如果 variable1 是 "read/write csv files"，将 data 设置为 null
-        if ("read/write csv files".equals(variable1)) {
-            problemDetails.put("data", JSONObject.NULL);
-        }
-
-        // 返回问题的 JSON 字符串
-        return problemDetails.toString();
     }
+
 
     @GetMapping("/code")
     public String getCode() {
@@ -79,52 +84,45 @@ public class AIController {
             try {
                 // Generate AI code using the scenario, task, and data
                 PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
-                generatedCode = codeGenerator.generateCode();
-            } catch (Exception e) {
-                System.out.println("Error generating code: " + e.getMessage());
-                return "Failed to generate code: " + e.getMessage();
-            }
+                generatedCode = codeGenerator.generateCode();  // Retry if JSONException occurs
 
-            // Check if the generated code is null or empty
-            if (generatedCode == null || generatedCode.isEmpty()) {
-                return "Failed to generate valid code.";
-            }
-
-            // Clear StringBuilder to prevent content accumulation
-            formattedContent.setLength(0);
-            importAndDataDefine.setLength(0);
-
-            // Process the 'data' part
-            if (generatedCode.has("data")) {
-                JSONArray dataArray = generatedCode.getJSONArray("data");
-                for (int i = 0; i < dataArray.length(); i++) {
-                    importAndDataDefine.append(dataArray.getString(i)).append("\n");
+                // Check if the generated code is null or empty
+                if (generatedCode == null || generatedCode.isEmpty()) {
+                    return "Failed to generate valid code.";
                 }
-            }
 
-            // Append the 'data' part to the formattedContent
-            formattedContent.append(importAndDataDefine);
+                // Clear StringBuilder to prevent content accumulation
+                formattedContent.setLength(0);
+                importAndDataDefine.setLength(0);
 
-            // Process the 'code' part
-            if (generatedCode.has("code")) {
-                JSONArray codeArray = generatedCode.getJSONArray("code");
-                for (int i = 0; i < codeArray.length(); i++) {
-                    formattedContent.append(codeArray.getString(i)).append("\n");
+                // Process the 'data' part
+                if (generatedCode.has("data")) {
+                    JSONArray dataArray = generatedCode.getJSONArray("data");
+                    for (int i = 0; i < dataArray.length(); i++) {
+                        importAndDataDefine.append(dataArray.getString(i)).append("\n");
+                    }
                 }
-            }
 
-            // Merge 'data' and 'code' into one Python script
-            pythonCode = formattedContent.toString().trim();
-            System.out.println("Generated Python Code:\n" + pythonCode);
+                // Append the 'data' part to the formattedContent
+                formattedContent.append(importAndDataDefine);
 
-            // Execute the generated Python code and capture exceptions
-            try {
-                // Define the path and script name
+                // Process the 'code' part
+                if (generatedCode.has("code")) {
+                    JSONArray codeArray = generatedCode.getJSONArray("code");
+                    for (int i = 0; i < codeArray.length(); i++) {
+                        formattedContent.append(codeArray.getString(i)).append("\n");
+                    }
+                }
+
+                // Merge 'data' and 'code' into one Python script
+                pythonCode = formattedContent.toString().trim();
+                System.out.println("Generated Python Code:\n" + pythonCode);
+
+                // Execute the generated Python code and capture exceptions
                 String currentDir = System.getProperty("user.dir");
                 String directoryPath = currentDir + "/IDE/src/tmp";
                 String scriptName = "code.py";
 
-                // Use PythonFileWriter and DockerExecutor to run Python code
                 PythonFileWriter writer = new PythonFileWriter();
                 DockerExecutor executor = new DockerExecutor("rita6667/gemini-app:latest");
 
@@ -143,6 +141,9 @@ public class AIController {
                 // If stdout is empty, restart the generation process
                 System.out.println("Empty stdout, retrying code generation...");
 
+            } catch (JSONException e) {
+                System.out.println("JSON error encountered: " + e.getMessage());
+                // Retry the logic
             } catch (Exception exp) {
                 System.out.println("Error executing Python code: " + exp.getMessage());
                 return "Error executing Python code: " + exp.getMessage();
@@ -153,23 +154,28 @@ public class AIController {
 
     @GetMapping("/hint")
     public String getHint() {
-        // 使用 scenario, task 和 pythonCode 生成提示
-        PythonHintsGenerator hintGenerator = new PythonHintsGenerator(scenario, task, pythonCode);
-        JSONObject generatedHint;
+        while (true) { // Start the retry loop
+            try {
+                // 使用 scenario, task 和 pythonCode 生成提示
+                PythonHintsGenerator hintGenerator = new PythonHintsGenerator(scenario, task, pythonCode);
+                JSONObject generatedHint = hintGenerator.generateHint();  // Generate hint
 
-        try {
-            generatedHint = hintGenerator.generateHint();
-        } catch (Exception e) {
-            System.out.println("Error generating hint: " + e.getMessage());
-            return "Failed to generate hint: " + e.getMessage();
+                // 打印生成的提示
+                System.out.println(generatedHint.toString());
+
+                // 返回提示 JSON 字符串
+                return generatedHint.toString();
+
+            } catch (JSONException e) {
+                System.out.println("JSON error encountered: " + e.getMessage());
+                // Retry the logic automatically
+            } catch (Exception e) {
+                System.out.println("Error generating hint: " + e.getMessage());
+                return "Failed to generate hint: " + e.getMessage();
+            }
         }
-
-        // 打印生成的提示
-        System.out.println(generatedHint.toString());
-
-        // 返回提示 JSON 字符串
-        return generatedHint.toString();
     }
+
 
     @PostMapping("/submit")
     public String handleSubmit(@RequestBody SubmitRequest request) {
