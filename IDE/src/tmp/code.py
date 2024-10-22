@@ -1,10 +1,9 @@
 import pandas as pd
-orders = pd.DataFrame({'order_id': [1, 2, 3, 4, 5],
-                         'product_id': [101, 102, 103, 101, 102],
-                         'quantity': [2, 1, 3, 4, 2],
-                         'price': [10.0, 20.0, 15.0, 10.0, 20.0]})
-def calculate_total_revenue(orders):
-    total_revenue = orders['quantity'] * orders['price']
-    return total_revenue.sum()
-total_revenue = calculate_total_revenue(orders)
-print(f'Total Revenue: ${total_revenue:.2f}')
+data = {'Product': ['A', 'B', 'C', 'D', 'E'], 'Category': ['Electronics', 'Books', 'Clothing', 'Electronics', 'Books'], 'Sales': [100, 50, 75, 120, 60]}
+products = pd.DataFrame(data)
+def calculate_total_sales_by_category(products):
+    total_sales = products.groupby('Category')['Sales'].sum().reset_index()
+    return total_sales
+total_sales_df = calculate_total_sales_by_category(products)
+print("Total Sales by Category:")
+print(total_sales_df)
