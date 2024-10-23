@@ -30,6 +30,8 @@ public class PythonProblemGenerator {
         List<String> command = new ArrayList<>();
         command.add("docker");
         command.add("run");
+        command.add("--platform");
+        command.add("linux/arm64");
         command.add("--rm");
         command.add("rita6667/gemini-app:latest");  // Docker image name
         command.add("src/model/Generate_Question.py");

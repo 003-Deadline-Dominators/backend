@@ -25,6 +25,8 @@ public class PythonCodeGenerator {
         List<String> command = new ArrayList<>();
         command.add("docker");
         command.add("run");
+        command.add("--platform");
+        command.add("linux/arm64");
         command.add("--rm");
         command.add("rita6667/gemini-app:latest");  // Docker 镜像名
         command.add("src/model/Generate_Code.py");

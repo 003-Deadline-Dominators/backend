@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://54.252.5.239")
 public class AIController {
 
     // 类级别变量，用于存储 problemDetails 生成的内容
@@ -203,7 +203,7 @@ public class AIController {
         System.out.println(formattedContent);
         String pythonCode = formattedContent.toString().trim();
         String currentDir = System.getProperty("user.dir");
-        String directoryPath = currentDir + "/IDE/src/tmp";
+        String directoryPath = currentDir + "IDE/src/tmp";
         String scriptName = "code.py";
 
         PythonFileWriter writer = new PythonFileWriter();

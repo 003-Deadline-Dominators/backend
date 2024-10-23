@@ -1,9 +1,17 @@
 import pandas as pd
-data = {'Product': ['A', 'B', 'C', 'D', 'E'], 'Category': ['Electronics', 'Books', 'Clothing', 'Electronics', 'Books'], 'Sales': [100, 50, 75, 120, 60]}
-products = pd.DataFrame(data)
-def calculate_total_sales_by_category(products):
-    total_sales = products.groupby('Category')['Sales'].sum().reset_index()
-    return total_sales
-total_sales_df = calculate_total_sales_by_category(products)
-print("Total Sales by Category:")
-print(total_sales_df)
+sales_data = [  
+    {'Product': 'Laptop', 'Category': 'Electronics', 'Quantity': 2, 'Price': 1200},  
+    {'Product': 'Keyboard', 'Category': 'Electronics', 'Quantity': 5, 'Price': 50},  
+    {'Product': 'Mouse', 'Category': 'Electronics', 'Quantity': 10, 'Price': 25},  
+    {'Product': 'Shirt', 'Category': 'Clothing', 'Quantity': 8, 'Price': 20},  
+    {'Product': 'Jeans', 'Category': 'Clothing', 'Quantity': 3, 'Price': 60},  
+    {'Product': 'Book', 'Category': 'Books', 'Quantity': 15, 'Price': 15},  
+    {'Product': 'Charger', 'Category': 'Electronics', 'Quantity': 7, 'Price': 30}  
+]
+df = pd.DataFrame(sales_data)
+df['Revenue'] = df['Quantity'] * df['Price']
+revenue_by_category = df.groupby('Category')['Revenue'].sum()
+print('Top 5 Best-Selling Products:')
+print(df.groupby('Product')['Quantity'].sum().sort_values(ascending=False).head(5))
+print('\nTotal Revenue by Category:')
+print(revenue_by_category.sort_values(ascending=False))

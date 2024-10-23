@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/parsons_data_db
     username: root
-    password: 843215yg
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   main:
     web-application-type: servlet
@@ -12,4 +12,5 @@ mybatis:
     map-underscore-to-camel-case: true
   mapper-locations: classpath*:mappers/*.xml
 server:
-  port: 8081
+  port: 8080
+

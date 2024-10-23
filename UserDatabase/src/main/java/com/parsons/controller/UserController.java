@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://54.252.5.239")
 @RequestMapping("/admin")
 public class UserController {
     private final UserService userService;
