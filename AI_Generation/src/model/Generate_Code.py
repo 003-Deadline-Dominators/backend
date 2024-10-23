@@ -16,43 +16,40 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 def generate_code_prompt(scenario, task, data=None):
-    prompt = f"""
-    You are tasked with generating Python code to solve the following problem.
-
-    ### Scenario:
-    {scenario}
-
-    ### Task:
-    {task}
-    """
-
-    if data:
-        prompt += f"""
-        ### Data:
-        {data}
-        """
-
-    prompt += """
-    Ensure that the generated Python code meets the following criteria:
+    prompt = """
+    You are tasked with generating Python code to solve a given task. Ensure that the generated code meets the following criteria:
 
     1. **Complete Solution:** The code must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs.
+
     2. **Correctness:** The code should be error-free and capable of running successfully on the provided dataset (or a similar dataset structure).
+
     3. **Structured Code:** The solution must include:
         - All import statements must be placed at the very top.
         - Steps for loading and processing the data (if applicable).  
         - Any intermediate calculations or transformations needed to meet the task requirements.
         - Final calculations or results that directly solve the task.
+
     4. **Modular Approach:** Where applicable, break the solution into functions or logical blocks to enhance readability and reusability.
+
     5. **Libraries:** If external libraries (like pandas, NumPy, etc.) are required, import them at the beginning of the code and explain their use where necessary.
-    6. **Procedural Structure**: Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
-    6. **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
-    7. **Robustness:** Handle potential errors, such as missing or malformed data, if they are likely to occur in the dataset.
-    8. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the top 5 best-selling products in a clean table or returning the total revenue by category in a sorted list.
-    9. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
-    10. **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
-    11. **Clear Separation of Sections**: The code must be divided into two distinct sections:
-        - **Imports and Data Definition**: All import statements must be placed at the very top, followed by any predefined data (e.g., lists or dictionaries).
-        - **Code**: The rest of the code should follow, including data loading (such as converting predefined data to a DataFrame) and the main logic required to solve the task.
+
+    6. **Procedural Structure:** Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
+
+    7. **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
+
+    8. **Robustness:** Handle potential errors, such as missing or malformed data, if they are likely to occur in the dataset.
+
+    9. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the top 5 best-selling products in a clean table or returning the total revenue by category in a sorted list.
+
+    10. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
+
+    11. **Filename Consistency:** Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
+
+    12. **Clear Separation of Sections:** The code must be divided into two distinct sections:
+        - **Imports and Data Definition:** All import statements must be placed at the very top, followed by any predefined data (e.g., lists or dictionaries). This section should only contain import statements and predefined data. Do not include any data loading or manipulation in this section.
+        - **Code:** The rest of the code should follow, including data loading (such as converting predefined data into a DataFrame) and the main logic required to solve the task.
+
+    13. **Strict Section Separation:** Ensure that the `import and data define` section remains completely separate from the `code` section. No import statements or data definitions should appear in the `code` section.
 
     The output format should be as follows:
     ```json
