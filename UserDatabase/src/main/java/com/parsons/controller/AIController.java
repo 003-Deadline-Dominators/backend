@@ -203,7 +203,7 @@ public class AIController {
         System.out.println(formattedContent);
         String pythonCode = formattedContent.toString().trim();
         String currentDir = System.getProperty("user.dir");
-        String directoryPath = currentDir + "/IDE/src/tmp";
+        String directoryPath = "/home/ubuntu/backend/IDE/src/tmp";
         String scriptName = "code.py";
 
         PythonFileWriter writer = new PythonFileWriter();
