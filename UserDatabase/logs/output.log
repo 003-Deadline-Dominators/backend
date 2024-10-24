@@ -1,0 +1,746 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:25.900Z  INFO 109012 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109012 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:25.911Z  INFO 109012 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:27.775Z  INFO 109012 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:27.790Z  INFO 109012 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:27.790Z  INFO 109012 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:27.835Z  INFO 109012 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:27.836Z  INFO 109012 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1762 ms
+2024-10-24T11:21:28.919Z  WARN 109012 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:28.944Z  INFO 109012 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:28.969Z ERROR 109012 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:31.147Z  INFO 109178 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109178 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:31.158Z  INFO 109178 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:33.112Z  INFO 109178 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:33.126Z  INFO 109178 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:33.127Z  INFO 109178 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:33.182Z  INFO 109178 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:33.184Z  INFO 109178 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1847 ms
+2024-10-24T11:21:34.258Z  WARN 109178 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:34.279Z  INFO 109178 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:34.299Z ERROR 109178 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:36.278Z  INFO 109319 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109319 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:36.286Z  INFO 109319 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:38.161Z  INFO 109319 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:38.178Z  INFO 109319 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:38.179Z  INFO 109319 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:38.232Z  INFO 109319 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:38.235Z  INFO 109319 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1805 ms
+2024-10-24T11:21:39.261Z  WARN 109319 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:39.287Z  INFO 109319 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:39.311Z ERROR 109319 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:41.253Z  INFO 109400 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109400 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:41.261Z  INFO 109400 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:43.034Z  INFO 109400 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:43.049Z  INFO 109400 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:43.049Z  INFO 109400 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:43.101Z  INFO 109400 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:43.102Z  INFO 109400 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1703 ms
+2024-10-24T11:21:44.118Z  WARN 109400 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:44.145Z  INFO 109400 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:44.168Z ERROR 109400 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:45.969Z  INFO 109429 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109429 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:45.977Z  INFO 109429 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:47.708Z  INFO 109429 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:47.721Z  INFO 109429 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:47.721Z  INFO 109429 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:47.762Z  INFO 109429 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:47.763Z  INFO 109429 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1650 ms
+2024-10-24T11:21:48.791Z  WARN 109429 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:48.814Z  INFO 109429 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:48.836Z ERROR 109429 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:50.758Z  INFO 109458 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109458 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:50.765Z  INFO 109458 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:52.681Z  INFO 109458 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:52.695Z  INFO 109458 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:52.696Z  INFO 109458 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:52.737Z  INFO 109458 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:52.739Z  INFO 109458 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1810 ms
+2024-10-24T11:21:53.693Z  WARN 109458 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:53.721Z  INFO 109458 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:53.744Z ERROR 109458 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:21:55.772Z  INFO 109487 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109487 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:21:55.780Z  INFO 109487 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:21:57.708Z  INFO 109487 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:21:57.723Z  INFO 109487 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:21:57.724Z  INFO 109487 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:21:57.773Z  INFO 109487 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:21:57.775Z  INFO 109487 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1835 ms
+2024-10-24T11:21:58.802Z  WARN 109487 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:21:58.829Z  INFO 109487 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:21:58.853Z ERROR 109487 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:00.775Z  INFO 109517 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109517 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:00.782Z  INFO 109517 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:02.627Z  INFO 109517 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:02.645Z  INFO 109517 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:02.645Z  INFO 109517 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:02.698Z  INFO 109517 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:02.700Z  INFO 109517 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1784 ms
+2024-10-24T11:22:03.749Z  WARN 109517 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:03.774Z  INFO 109517 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:03.798Z ERROR 109517 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:05.808Z  INFO 109546 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109546 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:05.816Z  INFO 109546 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:07.645Z  INFO 109546 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:07.661Z  INFO 109546 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:07.662Z  INFO 109546 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:07.712Z  INFO 109546 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:07.715Z  INFO 109546 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1766 ms
+2024-10-24T11:22:08.753Z  WARN 109546 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:08.785Z  INFO 109546 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:08.805Z ERROR 109546 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:10.816Z  INFO 109577 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109577 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:10.823Z  INFO 109577 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:12.663Z  INFO 109577 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:12.679Z  INFO 109577 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:12.679Z  INFO 109577 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:12.725Z  INFO 109577 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:12.728Z  INFO 109577 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1750 ms
+2024-10-24T11:22:13.765Z  WARN 109577 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:13.793Z  INFO 109577 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:13.819Z ERROR 109577 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:15.836Z  INFO 109661 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109661 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:15.845Z  INFO 109661 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:17.681Z  INFO 109661 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:17.696Z  INFO 109661 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:17.697Z  INFO 109661 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:17.750Z  INFO 109661 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:17.752Z  INFO 109661 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1758 ms
+2024-10-24T11:22:18.744Z  WARN 109661 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:18.771Z  INFO 109661 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:18.795Z ERROR 109661 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:20.786Z  INFO 109717 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109717 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:20.793Z  INFO 109717 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:22.598Z  INFO 109717 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:22.614Z  INFO 109717 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:22.614Z  INFO 109717 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:22.667Z  INFO 109717 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:22.669Z  INFO 109717 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1744 ms
+2024-10-24T11:22:23.698Z  WARN 109717 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:23.727Z  INFO 109717 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:23.751Z ERROR 109717 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:25.781Z  INFO 109831 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109831 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:25.791Z  INFO 109831 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:27.641Z  INFO 109831 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:27.655Z  INFO 109831 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:27.655Z  INFO 109831 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:27.697Z  INFO 109831 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:27.699Z  INFO 109831 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1757 ms
+2024-10-24T11:22:28.767Z  WARN 109831 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:28.796Z  INFO 109831 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:28.823Z ERROR 109831 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:30.777Z  INFO 109967 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 109967 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:30.795Z  INFO 109967 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:32.590Z  INFO 109967 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:32.605Z  INFO 109967 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:32.605Z  INFO 109967 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:32.672Z  INFO 109967 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:32.674Z  INFO 109967 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1749 ms
+2024-10-24T11:22:33.693Z  WARN 109967 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:33.719Z  INFO 109967 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:33.741Z ERROR 109967 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:22:35.765Z  INFO 110052 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 110052 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:22:35.775Z  INFO 110052 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:22:37.524Z  INFO 110052 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:22:37.540Z  INFO 110052 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:22:37.540Z  INFO 110052 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:22:37.588Z  INFO 110052 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:22:37.589Z  INFO 110052 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1655 ms
+2024-10-24T11:22:38.572Z  WARN 110052 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-24T11:22:38.602Z  INFO 110052 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-24T11:22:38.622Z ERROR 110052 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:23:17.675Z  INFO 110738 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 110738 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:23:17.680Z  INFO 110738 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:23:19.465Z  INFO 110738 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:23:19.480Z  INFO 110738 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:23:19.480Z  INFO 110738 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:23:19.530Z  INFO 110738 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:23:19.532Z  INFO 110738 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1667 ms
+2024-10-24T11:23:20.535Z  INFO 110738 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T11:23:20.559Z  INFO 110738 --- [           main] com.parsons.ParsonsApp                   : Started ParsonsApp in 3.759 seconds (process running for 4.528)
+2024-10-24T11:23:28.904Z  INFO 110738 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T11:23:28.905Z  INFO 110738 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T11:23:28.907Z  INFO 110738 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-24T11:23:29.012Z  INFO 110738 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T11:23:29.483Z  INFO 110738 --- [nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14c0a239
+2024-10-24T11:23:29.487Z  INFO 110738 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Sentence Splitting Using nltk
+generated scenario is: You are a data scientist working on a research project that involves analyzing academic papers from various fields. To effectively analyze the text data, you need to first preprocess it by splitting each paper into individual sentences. This will enable you to perform further analysis on each sentence, such as sentiment analysis, topic modeling, or keyword extraction.
+generated task is: Write a Python program using the NLTK library to split each academic paper into individual sentences. You should use the Punkt sentence tokenizer to handle the specific characteristics of academic writing, such as complex sentence structures and use of citations. The program should take the text of an academic paper as input and return a list of sentences.
+generated data is: The impact of artificial intelligence on the future of work is a topic of increasing interest and debate. A recent study by the World Economic Forum estimated that by 2025, around 85 million jobs could be displaced by automation, while 97 million new jobs could be created in the same period. However, the nature of these new jobs is likely to be significantly different from those being replaced. In addition to technological advancements, other factors such as globalization, demographic changes, and the rise of the gig economy are also shaping the future of work.
+
+This paper explores the potential impact of AI on various sectors, including manufacturing, healthcare, education, and finance. It analyzes the skills that are most likely to be in demand in the future and discusses the implications for individuals, businesses, and governments. The paper also examines the ethical and social challenges posed by AI, such as bias, privacy, and job displacement, and suggests potential solutions to mitigate these challenges.
+
+In conclusion, the future of work is likely to be profoundly shaped by AI, but the ultimate impact will depend on how we adapt to these changes. By embracing innovation, investing in education and retraining programs, and creating policies that promote fairness and opportunity, we can harness the potential of AI to create a more inclusive and prosperous future for all.
+Using scenario: You are a data scientist working on a research project that involves analyzing academic papers from various fields. To effectively analyze the text data, you need to first preprocess it by splitting each paper into individual sentences. This will enable you to perform further analysis on each sentence, such as sentiment analysis, topic modeling, or keyword extraction.
+Using task: Write a Python program using the NLTK library to split each academic paper into individual sentences. You should use the Punkt sentence tokenizer to handle the specific characteristics of academic writing, such as complex sentence structures and use of citations. The program should take the text of an academic paper as input and return a list of sentences.
+Using data: The impact of artificial intelligence on the future of work is a topic of increasing interest and debate. A recent study by the World Economic Forum estimated that by 2025, around 85 million jobs could be displaced by automation, while 97 million new jobs could be created in the same period. However, the nature of these new jobs is likely to be significantly different from those being replaced. In addition to technological advancements, other factors such as globalization, demographic changes, and the rise of the gig economy are also shaping the future of work.
+
+This paper explores the potential impact of AI on various sectors, including manufacturing, healthcare, education, and finance. It analyzes the skills that are most likely to be in demand in the future and discusses the implications for individuals, businesses, and governments. The paper also examines the ethical and social challenges posed by AI, such as bias, privacy, and job displacement, and suggests potential solutions to mitigate these challenges.
+
+In conclusion, the future of work is likely to be profoundly shaped by AI, but the ultimate impact will depend on how we adapt to these changes. By embracing innovation, investing in education and retraining programs, and creating policies that promote fairness and opportunity, we can harness the potential of AI to create a more inclusive and prosperous future for all.
+Generated Python Code:
+import nltk
+from nltk.tokenize import PunktSentenceTokenizer
+paper_text = "The impact of artificial intelligence on the future of work is a topic of increasing interest and debate. A recent study by the World Economic Forum estimated that by 2025, around 85 million jobs could be displaced by automation, while 97 million new jobs could be created in the same period. However, the nature of these new jobs is likely to be significantly different from those being replaced. In addition to technological advancements, other factors such as globalization, demographic changes, and the rise of the gig economy are also shaping the future of work.\n\nThis paper explores the potential impact of AI on various sectors, including manufacturing, healthcare, education, and finance. It analyzes the skills that are most likely to be in demand in the future and discusses the implications for individuals, businesses, and governments. The paper also examines the ethical and social challenges posed by AI, such as bias, privacy, and job displacement, and suggests potential solutions to mitigate these challenges.\n\nIn conclusion, the future of work is likely to be profoundly shaped by AI, but the ultimate impact will depend on how we adapt to these changes. By embracing innovation, investing in education and retraining programs, and creating policies that promote fairness and opportunity, we can harness the potential of AI to create a more inclusive and prosperous future for all."
+def split_into_sentences(text):
+    tokenizer = PunktSentenceTokenizer()
+    sentences = tokenizer.tokenize(text)
+    return sentences
+paper_sentences = split_into_sentences(paper_text)
+print("Sentences in the academic paper:")
+for sentence in paper_sentences:
+    print(sentence)
+Error executing Python code: Cannot invoke "org.json.JSONObject.toString()" because "result" is null
+{"hints":["Hint 1: Start by importing the necessary libraries from the NLTK toolkit.","Hint 2: Define a function to take the text of the academic paper as input and return a list of sentences.","Hint 3: Inside the function, create an instance of the PunktSentenceTokenizer and use it to tokenize the input text."]}
+2024-10-24T11:28:16.386Z  INFO 110738 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T11:28:16.397Z  INFO 110738 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:29:29.654Z  INFO 113122 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 113122 (/home/ubuntu/backend/UserDatabase/target/parsonsApp.jar started by ubuntu in /)
+2024-10-24T11:29:29.662Z  INFO 113122 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:29:31.411Z  INFO 113122 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:29:31.427Z  INFO 113122 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:29:31.427Z  INFO 113122 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:29:31.473Z  INFO 113122 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:29:31.475Z  INFO 113122 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1653 ms
+2024-10-24T11:29:32.518Z  INFO 113122 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T11:29:32.542Z  INFO 113122 --- [           main] com.parsons.ParsonsApp                   : Started ParsonsApp in 3.759 seconds (process running for 4.515)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:30:21.114Z  INFO 113711 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 113711 (/home/ubuntu/backend/UserDatabase/target/parsonsApp.jar started by ubuntu in /)
+2024-10-24T11:30:21.124Z  INFO 113711 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:30:23.058Z  INFO 113711 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:30:23.074Z  INFO 113711 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:30:23.074Z  INFO 113711 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:30:23.124Z  INFO 113711 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:30:23.126Z  INFO 113711 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1801 ms
+2024-10-24T11:30:24.134Z  INFO 113711 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T11:30:24.159Z  INFO 113711 --- [           main] com.parsons.ParsonsApp                   : Started ParsonsApp in 4.001 seconds (process running for 4.848)
+2024-10-24T11:30:29.625Z  INFO 113711 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T11:30:29.625Z  INFO 113711 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T11:30:29.627Z  INFO 113711 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-24T11:30:29.736Z  INFO 113711 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T11:30:30.196Z  INFO 113711 --- [nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16d22fcd
+2024-10-24T11:30:30.199Z  INFO 113711 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Sentence Splitting Using nltk
+generated scenario is: You are a researcher studying the impact of AI on various fields. You have collected a large corpus of academic papers related to AI in education, healthcare, and finance. To analyze the trends and topics discussed in these papers, you need to perform text preprocessing. One crucial step is splitting the text of each paper into individual sentences. This will allow you to extract meaningful insights from the papers and build models to understand the evolution of AI research.
+generated task is: Write a Python program that uses the NLTK library to split each academic paper into sentences. Use the provided sample paper text as input, and output the sentences in a list format. Ensure that the sentences are properly tokenized and punctuation is handled correctly.
+generated data is: "Artificial intelligence (AI) is rapidly transforming various industries, including education. This paper explores the potential of AI in personalizing learning experiences and enhancing student engagement. AI-powered tools can analyze student data and provide customized learning paths, adaptive assessments, and real-time feedback. Moreover, AI can automate tasks like grading and provide personalized recommendations for learning resources. However, ethical considerations, data privacy, and accessibility need to be addressed for the responsible adoption of AI in education. This paper provides a comprehensive overview of AI applications in education, highlighting the benefits, challenges, and future directions."
+Using scenario: You are a researcher studying the impact of AI on various fields. You have collected a large corpus of academic papers related to AI in education, healthcare, and finance. To analyze the trends and topics discussed in these papers, you need to perform text preprocessing. One crucial step is splitting the text of each paper into individual sentences. This will allow you to extract meaningful insights from the papers and build models to understand the evolution of AI research.
+Using task: Write a Python program that uses the NLTK library to split each academic paper into sentences. Use the provided sample paper text as input, and output the sentences in a list format. Ensure that the sentences are properly tokenized and punctuation is handled correctly.
+Using data: "Artificial intelligence (AI) is rapidly transforming various industries, including education. This paper explores the potential of AI in personalizing learning experiences and enhancing student engagement. AI-powered tools can analyze student data and provide customized learning paths, adaptive assessments, and real-time feedback. Moreover, AI can automate tasks like grading and provide personalized recommendations for learning resources. However, ethical considerations, data privacy, and accessibility need to be addressed for the responsible adoption of AI in education. This paper provides a comprehensive overview of AI applications in education, highlighting the benefits, challenges, and future directions."
+Generated Python Code:
+import nltk
+paper_text = "Artificial intelligence (AI) is rapidly transforming various industries, including education. This paper explores the potential of AI in personalizing learning experiences and enhancing student engagement. AI-powered tools can analyze student data and provide customized learning paths, adaptive assessments, and real-time feedback. Moreover, AI can automate tasks like grading and provide personalized recommendations for learning resources. However, ethical considerations, data privacy, and accessibility need to be addressed for the responsible adoption of AI in education. This paper provides a comprehensive overview of AI applications in education, highlighting the benefits, challenges, and future directions."
+def split_into_sentences(text):
+    sentences = nltk.sent_tokenize(text)
+    return sentences
+sentences = split_into_sentences(paper_text)
+print("Sentences in the paper:")
+for sentence in sentences:
+    print(sentence)
+Error executing Python code: Cannot invoke "org.json.JSONObject.toString()" because "result" is null
+{"hints":["Hint 1: The code starts by importing the necessary library for sentence tokenization.","Hint 2: The code defines a function to split the text into sentences using the imported library.","Hint 3: The code calls the function with the sample paper text as input and stores the result in a variable.","Hint 4: The code then iterates through the list of sentences and prints each sentence."]}
+Sentence Splitting Using nltk
+generated scenario is: You are a data scientist working on a project to analyze academic papers in a specific field, such as computer science or biology. Your initial task is to preprocess the text data by splitting each paper into individual sentences. This is a crucial step in preparing the data for further analysis, such as topic modeling, sentiment analysis, or citation network analysis.
+generated task is: Using the 'nltk' library in Python, implement a function that takes a string representing the full text of an academic paper as input and returns a list of strings, where each string is a separate sentence from the paper. The function should handle common punctuation marks and sentence boundaries correctly.
+generated data is: ["This is an example academic paper. It contains multiple sentences, separated by punctuation marks, such as periods, question marks, and exclamation points. Some sentences may be long and complex, while others are short and simple. The goal is to accurately split the text into individual sentences.", "This is a second sentence, which further demonstrates the need for proper sentence splitting. The ability to accurately split sentences is essential for effective text analysis.", "This is a third sentence. It highlights the importance of using appropriate techniques for sentence splitting to avoid errors in subsequent analysis."]
+Using scenario: You are a data scientist working on a project to analyze academic papers in a specific field, such as computer science or biology. Your initial task is to preprocess the text data by splitting each paper into individual sentences. This is a crucial step in preparing the data for further analysis, such as topic modeling, sentiment analysis, or citation network analysis.
+Using task: Using the 'nltk' library in Python, implement a function that takes a string representing the full text of an academic paper as input and returns a list of strings, where each string is a separate sentence from the paper. The function should handle common punctuation marks and sentence boundaries correctly.
+Using data: ["This is an example academic paper. It contains multiple sentences, separated by punctuation marks, such as periods, question marks, and exclamation points. Some sentences may be long and complex, while others are short and simple. The goal is to accurately split the text into individual sentences.", "This is a second sentence, which further demonstrates the need for proper sentence splitting. The ability to accurately split sentences is essential for effective text analysis.", "This is a third sentence. It highlights the importance of using appropriate techniques for sentence splitting to avoid errors in subsequent analysis."]
+Generated Python Code:
+import nltk
+data = ["This is an example academic paper. It contains multiple sentences, separated by punctuation marks, such as periods, question marks, and exclamation points. Some sentences may be long and complex, while others are short and simple. The goal is to accurately split the text into individual sentences.", "This is a second sentence, which further demonstrates the need for proper sentence splitting. The ability to accurately split sentences is essential for effective text analysis.", "This is a third sentence. It highlights the importance of using appropriate techniques for sentence splitting to avoid errors in subsequent analysis."]
+def split_sentences(text):
+    sentences = nltk.sent_tokenize(text)
+    return sentences
+for paper in data:
+    sentences = split_sentences(paper)
+    print(f"Sentences in the paper:\n{sentences}\n")
+Error executing Python code: Cannot invoke "org.json.JSONObject.toString()" because "result" is null
+{"hints":["Hint 1: The `split_sentences` function should be called within a loop that iterates through each paper in the `data` list.","Hint 2: The loop should print the sentences extracted from each paper using the `print` function."]}
+2024-10-24T11:36:56.757Z  INFO 113711 --- [nio-8080-exec-5] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0xc90x940xd10xa60xae0x9c0x05lM/0x090x8cp#0xee0x9d*5#]0xc7R:0xc80x8e/0x110xb80xcd0x89Z0xfb0xa40x19f0xd20xce0xb30xa10x810xbb0xfc0xa00xdd%d10x170xa6%n0xc5...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:262) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.26.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-10-24T11:40:40.446Z  INFO 113711 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T11:40:40.463Z  INFO 113711 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:40:42.268Z  INFO 119519 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 119519 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:40:42.276Z  INFO 119519 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:40:44.111Z  INFO 119519 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:40:44.125Z  INFO 119519 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:40:44.126Z  INFO 119519 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:40:44.193Z  INFO 119519 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:40:44.196Z  INFO 119519 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1783 ms
+2024-10-24T11:40:45.276Z  INFO 119519 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T11:40:45.300Z  INFO 119519 --- [           main] com.parsons.ParsonsApp                   : Started ParsonsApp in 3.96 seconds (process running for 4.766)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-10-24T11:41:02.219Z  INFO 119888 --- [           main] com.parsons.ParsonsApp                   : Starting ParsonsApp v0.0.1-SNAPSHOT using Java 17.0.12 with PID 119888 (/home/ubuntu/backend/UserDatabase/target/UserDatabase-0.0.1-SNAPSHOT.jar started by ubuntu in /)
+2024-10-24T11:41:02.228Z  INFO 119888 --- [           main] com.parsons.ParsonsApp                   : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T11:41:04.045Z  INFO 119888 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T11:41:04.060Z  INFO 119888 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T11:41:04.061Z  INFO 119888 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-24T11:41:04.115Z  INFO 119888 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T11:41:04.116Z  INFO 119888 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1766 ms
+2024-10-24T11:41:05.205Z  INFO 119888 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T11:41:05.229Z  INFO 119888 --- [           main] com.parsons.ParsonsApp                   : Started ParsonsApp in 3.922 seconds (process running for 4.651)
+2024-10-24T11:41:06.351Z  INFO 119888 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T11:41:06.352Z  INFO 119888 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T11:41:06.353Z  INFO 119888 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-24T11:41:06.481Z  INFO 119888 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T11:41:06.935Z  INFO 119888 --- [nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ee42193
+2024-10-24T11:41:06.940Z  INFO 119888 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Sentence Splitting Using nltk
+generated scenario is: You are working on a project to analyze the trends in research publications related to natural language processing. You have a large corpus of academic papers in text format, and you need to pre-process the data before applying any machine learning techniques. One of the first steps is to split each paper into individual sentences to facilitate further analysis.
+generated task is: Use the NLTK library in Python to split each academic paper in the provided data into individual sentences. You can assume that each paper is stored as a separate string in a list. The output should be a list of lists, where each inner list contains the sentences from the corresponding paper.
+generated data is: [ "This paper explores the use of deep learning techniques for natural language processing. The proposed model utilizes a recurrent neural network architecture to achieve state-of-the-art results on various NLP tasks.", "Our experiments demonstrate the effectiveness of the proposed model, achieving significant improvements over existing approaches. The findings highlight the potential of deep learning for advancing the field of natural language understanding.", "Future research directions include investigating the use of more sophisticated architectures and exploring the application of the model to other NLP tasks.", "This paper analyzes the sentiment expressed in online reviews using a combination of sentiment analysis and machine learning techniques. The proposed approach identifies key features that influence customer sentiment and provides insights into the factors driving positive or negative reviews.", "The results demonstrate the effectiveness of the proposed approach in accurately predicting customer sentiment, providing valuable insights for businesses to improve their products and services." ]
+Using scenario: You are working on a project to analyze the trends in research publications related to natural language processing. You have a large corpus of academic papers in text format, and you need to pre-process the data before applying any machine learning techniques. One of the first steps is to split each paper into individual sentences to facilitate further analysis.
+Using task: Use the NLTK library in Python to split each academic paper in the provided data into individual sentences. You can assume that each paper is stored as a separate string in a list. The output should be a list of lists, where each inner list contains the sentences from the corresponding paper.
+Using data: [ "This paper explores the use of deep learning techniques for natural language processing. The proposed model utilizes a recurrent neural network architecture to achieve state-of-the-art results on various NLP tasks.", "Our experiments demonstrate the effectiveness of the proposed model, achieving significant improvements over existing approaches. The findings highlight the potential of deep learning for advancing the field of natural language understanding.", "Future research directions include investigating the use of more sophisticated architectures and exploring the application of the model to other NLP tasks.", "This paper analyzes the sentiment expressed in online reviews using a combination of sentiment analysis and machine learning techniques. The proposed approach identifies key features that influence customer sentiment and provides insights into the factors driving positive or negative reviews.", "The results demonstrate the effectiveness of the proposed approach in accurately predicting customer sentiment, providing valuable insights for businesses to improve their products and services." ]
+Generated Python Code:
+import nltk
+papers = [ "This paper explores the use of deep learning techniques for natural language processing. The proposed model utilizes a recurrent neural network architecture to achieve state-of-the-art results on various NLP tasks.", "Our experiments demonstrate the effectiveness of the proposed model, achieving significant improvements over existing approaches. The findings highlight the potential of deep learning for advancing the field of natural language understanding.", "Future research directions include investigating the use of more sophisticated architectures and exploring the application of the model to other NLP tasks.", "This paper analyzes the sentiment expressed in online reviews using a combination of sentiment analysis and machine learning techniques. The proposed approach identifies key features that influence customer sentiment and provides insights into the factors driving positive or negative reviews.", "The results demonstrate the effectiveness of the proposed approach in accurately predicting customer sentiment, providing valuable insights for businesses to improve their products and services." ]
+def split_sentences(papers):
+    sentences_list = []
+    for paper in papers:
+        sentences = nltk.sent_tokenize(paper)
+        sentences_list.append(sentences)
+    return sentences_list
+sentences_by_paper = split_sentences(papers)
+print(sentences_by_paper)
+Execution Result:
+{"stdout":"[['This paper explores the use of deep learning techniques for natural language processing.', 'The proposed model utilizes a recurrent neural network architecture to achieve state-of-the-art results on various NLP tasks.'], ['Our experiments demonstrate the effectiveness of the proposed model, achieving significant improvements over existing approaches.', 'The findings highlight the potential of deep learning for advancing the field of natural language understanding.'], ['Future research directions include investigating the use of more sophisticated architectures and exploring the application of the model to other NLP tasks.'], ['This paper analyzes the sentiment expressed in online reviews using a combination of sentiment analysis and machine learning techniques.', 'The proposed approach identifies key features that influence customer sentiment and provides insights into the factors driving positive or negative reviews.'], ['The results demonstrate the effectiveness of the proposed approach in accurately predicting customer sentiment, providing valuable insights for businesses to improve their products and services.']]\n","stderr":""}
+{"hints":["Hint 1: The code needs to iterate through each paper in the `papers` list.","Hint 2: Inside the loop, you need to use `nltk.sent_tokenize` to split the paper into sentences.","Hint 3: The sentences for each paper should be added to a list, and this list should be appended to `sentences_list`."]}
+Sentence Splitting Using nltk
+Sentence Splitting Using nltk

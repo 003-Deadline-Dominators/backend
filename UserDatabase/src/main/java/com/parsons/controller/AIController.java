@@ -120,7 +120,7 @@ public class AIController {
 
                 // Execute the generated Python code and capture exceptions
                 String currentDir = System.getProperty("user.dir");
-                String directoryPath = currentDir + "/IDE/src/tmp";
+                String directoryPath = "/home/ubuntu/backend/IDE/src/tmp";
                 String scriptName = "code.py";
 
                 PythonFileWriter writer = new PythonFileWriter();
@@ -203,14 +203,14 @@ public class AIController {
         System.out.println(formattedContent);
         String pythonCode = formattedContent.toString().trim();
         String currentDir = System.getProperty("user.dir");
-        String directoryPath = currentDir + "IDE/src/tmp";
+        String directoryPath = currentDir + "/IDE/src/tmp";
         String scriptName = "code.py";
 
         PythonFileWriter writer = new PythonFileWriter();
         DockerExecutor executor = new DockerExecutor("rita6667/gemini-app:latest");
         PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
         JSONObject result = pythonExecutor.executePythonCode(pythonCode, directoryPath, scriptName);
-        if (result.get("stdout") == correctOutput.get("stdout")) {
+        if (result.get("stdout").equals(correctOutput.get("stdout"))) {
             result.append("correct", true);
         } else {
             result.append("correct", false);
