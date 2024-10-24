@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
+import com.parsons.pojo.Problem;
 
 import java.util.Objects;
 
@@ -19,11 +20,7 @@ import java.util.Objects;
 public class AIController {
 
     // 类级别变量，用于存储 problemDetails 生成的内容
-    private String scenario = "";
-    private String task = "";
-    private String data = "";
-    private String pythonCode = ""; // 存储生成的 Python 代码
-    private JSONObject correctOutput = new JSONObject(); // 存储正确的输出
+    private Problem problem = new Problem();
 
     @GetMapping("/problem")
     public String getProblemDetails(@RequestParam String variable1, @RequestParam String variable2) {
@@ -39,13 +36,13 @@ public class AIController {
                 }
 
                 // 保存 scenario, task 和 data 到类级别变量中
-                scenario = problemDetails.optString("scenario", "");
-                task = problemDetails.optString("task", "");
-                data = problemDetails.optString("data", "").replace("python", "").strip();
+                problem.setScenario(problemDetails.optString("scenario", ""));
+                problem.setTask(problemDetails.optString("task", ""));
+                problem.setData(problemDetails.optString("data", "").replace("python", "").strip());
 
-                System.out.println("generated scenario is: " + scenario);
-                System.out.println("generated task is: " + task);
-                System.out.println("generated data is: " + data);
+                System.out.println("generated scenario is: " + problem.getScenario());
+                System.out.println("generated task is: " + problem.getTask());
+                System.out.println("generated data is: " + problem.getData());
 
                 // 如果 variable1 是 "read/write csv files"，将 data 设置为 null
                 if ("read/write csv files".equals(variable1)) {
@@ -72,18 +69,18 @@ public class AIController {
         StringBuilder formattedContent = new StringBuilder();
         StringBuilder importAndDataDefine = new StringBuilder();
 
-        System.out.println("Using scenario: " + scenario);
-        System.out.println("Using task: " + task);
-        System.out.println("Using data: " + data);
+        System.out.println("Using scenario: " + problem.getScenario());
+        System.out.println("Using task: " + problem.getTask());
+        System.out.println("Using data: " + problem.getData());
 
         JSONObject generatedCode = null;
         JSONObject result = null;
 
         // Repeat the generation process until valid stdout is obtained
         while (true) {
-            try {
+               try {
                 // Generate AI code using the scenario, task, and data
-                PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
+                PythonCodeGenerator codeGenerator = new PythonCodeGenerator(problem.getScenario(), problem.getTask(), problem.getData());
                 generatedCode = codeGenerator.generateCode();  // Retry if JSONException occurs
 
                 // Check if the generated code is null or empty
@@ -115,8 +112,8 @@ public class AIController {
                 }
 
                 // Merge 'data' and 'code' into one Python script
-                pythonCode = formattedContent.toString().trim();
-                System.out.println("Generated Python Code:\n" + pythonCode);
+                 problem.setPythonCode( formattedContent.toString().trim());
+                System.out.println("Generated Python Code:\n" + problem.getPythonCode());
 
                 // Execute the generated Python code and capture exceptions
                 String currentDir = System.getProperty("user.dir");
@@ -127,14 +124,14 @@ public class AIController {
                 DockerExecutor executor = new DockerExecutor("rita6667/gemini-app:latest");
 
                 PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
-                result = pythonExecutor.executePythonCode(pythonCode, directoryPath, scriptName);
+                result = pythonExecutor.executePythonCode(problem.getPythonCode(), directoryPath, scriptName);
 
                 // Print execution result
                 System.out.println("Execution Result:\n" + result.toString());
 
                 // If stdout is not empty, return the generated code
                 if (!Objects.equals(result.get("stdout").toString(), "")) {
-                    correctOutput = result;
+                     problem.setCorrectOutput(result);
                     return generatedCode.toString();
                 }
 
@@ -156,8 +153,12 @@ public class AIController {
     public String getHint() {
         while (true) { // Start the retry loop
             try {
+                System.out.println("hint Using scenario: " + problem.getScenario());
+                System.out.println("hint Using task: " + problem.getTask());
+                System.out.println("hint Using data: " + problem.getPythonCode());
+
                 // 使用 scenario, task 和 pythonCode 生成提示
-                PythonHintsGenerator hintGenerator = new PythonHintsGenerator(scenario, task, pythonCode);
+                PythonHintsGenerator hintGenerator = new PythonHintsGenerator(problem.getScenario(), problem.getTask(), problem.getPythonCode());
                 JSONObject generatedHint = hintGenerator.generateHint();  // Generate hint
 
                 // 打印生成的提示
@@ -210,7 +211,10 @@ public class AIController {
         DockerExecutor executor = new DockerExecutor("rita6667/gemini-app:latest");
         PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
         JSONObject result = pythonExecutor.executePythonCode(pythonCode, directoryPath, scriptName);
-        if (result.get("stdout") == correctOutput.get("stdout")) {
+        System.out.println("expected Execution Result:" + problem.getCorrectOutput().toString());
+        System.out.println("actual Execution Result:" + result.toString());
+        System.out.println(result.get("stdout") == problem.getCorrectOutput().get("stdout"));
+        if (result.get("stdout").equals(problem.getCorrectOutput().get("stdout"))) {
             result.append("correct", true);
         } else {
             result.append("correct", false);

@@ -1,9 +1,13 @@
-import pandas as pd
-data = {'Product': ['A', 'B', 'C', 'D', 'E'], 'Category': ['Electronics', 'Books', 'Clothing', 'Electronics', 'Books'], 'Sales': [100, 50, 75, 120, 60]}
-products = pd.DataFrame(data)
-def calculate_total_sales_by_category(products):
-    total_sales = products.groupby('Category')['Sales'].sum().reset_index()
-    return total_sales
-total_sales_df = calculate_total_sales_by_category(products)
-print("Total Sales by Category:")
-print(total_sales_df)
+import numpy as np
+from scipy.stats import entropy
+group_A = {'movie3': 5, 'movie2': 3, 'movie1': 4.5, 'movie5': 4, 'movie4': 2.5}
+group_B = {'movie3': 4.5, 'movie2': 2.5, 'movie1': 4, 'movie5': 3.5, 'movie4': 2}
+def calculate_nmi(group_A, group_B):
+     ratings = np.array(list(group_A.values()) + list(group_B.values()))
+     entropy_A = entropy(np.histogram(list(group_A.values()), bins=10)[0])
+     entropy_B = entropy(np.histogram(list(group_B.values()), bins=10)[0])
+     joint_entropy = entropy(np.histogram2d(list(group_A.values()), list(group_B.values()), bins=10)[0])
+     return nmi
+result = calculate_nmi(group_A, group_B)
+     nmi = (entropy_A + entropy_B - joint_entropy) / np.sqrt(entropy_A * entropy_B)
+print(f'Normalised Mutual Information (NMI): {result}')
