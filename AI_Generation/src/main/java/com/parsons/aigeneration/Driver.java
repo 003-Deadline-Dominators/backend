@@ -45,6 +45,7 @@ public class Driver {
         // Instantiate the code generator with the internal data
         PythonCodeGenerator codeGenerator = new PythonCodeGenerator(topic, scenario, task, data);
         JSONObject generatedCode = codeGenerator.generateCode();
+        // JSONObject generatedCode = new JSONObject();
 
         // System.out.println(generatedCode.toString(4));
 
