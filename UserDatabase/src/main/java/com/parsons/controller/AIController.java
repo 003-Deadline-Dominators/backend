@@ -17,6 +17,7 @@ import java.util.Objects;
 @RestController
 @CrossOrigin(origins = "http://54.252.5.239")
 public class AIController {
+    private String topic;
 
     // 类级别变量，用于存储 problemDetails 生成的内容
     private String scenario = "";
@@ -27,6 +28,7 @@ public class AIController {
 
     @GetMapping("/problem")
     public String getProblemDetails(@RequestParam String variable1, @RequestParam String variable2) {
+        this.topic = variable1;
         while (true) { // Start the retry loop
             try {
                 // 初始化问题生成器
@@ -83,7 +85,7 @@ public class AIController {
         while (true) {
             try {
                 // Generate AI code using the scenario, task, and data
-                PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
+                PythonCodeGenerator codeGenerator = new PythonCodeGenerator(topic, scenario, task, data);
                 generatedCode = codeGenerator.generateCode();  // Retry if JSONException occurs
 
                 // Check if the generated code is null or empty

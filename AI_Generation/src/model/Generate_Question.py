@@ -33,7 +33,7 @@ def generate_problem_prompt(topic, context):
     The selected **topic** is: {topic}
     The selected **context** is: {context}
 
-    The output format should be in the following JSON structure for easier extraction:
+    The output format should be in the following JSON structure in plain text format for easier extraction，not using Markdown:
     ```json
     {{
       "scenario": "Scenario Description",

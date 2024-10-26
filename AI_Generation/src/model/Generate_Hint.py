@@ -33,7 +33,7 @@ def generate_hint_prompt(scenario, task, original_code):
     - Focus on logical dependencies, control structures (loops, conditionals), and code flow.
     - Make sure each hint addresses one specific part of the code structure.
 
-    Output the hints as follows:
+    Output the hints in plain text format, not using Markdown:
     Hint 1: <first key hint>
     Hint 2: <second key hint, if needed>
     Hint 3: <third key hint, if needed>

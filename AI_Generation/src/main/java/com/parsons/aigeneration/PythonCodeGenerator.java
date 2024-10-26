@@ -9,12 +9,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class PythonCodeGenerator {
+    private String topic;
     private String scenario;
     private String task;
     private String data;
 
     // 构造函数
-    public PythonCodeGenerator(String scenario, String task, String data) {
+    public PythonCodeGenerator(String topic, String scenario, String task, String data) {
+        this.topic = topic;
         this.scenario = scenario;
         this.task = task;
         this.data = data;
@@ -30,6 +32,7 @@ public class PythonCodeGenerator {
         command.add("--rm");
         command.add("rita6667/gemini-app:latest");  // Docker 镜像名
         command.add("src/model/Generate_Code.py");
+        command.add(topic);
         command.add(scenario);
         command.add(task);
         if (data != null && !data.isEmpty()) {
