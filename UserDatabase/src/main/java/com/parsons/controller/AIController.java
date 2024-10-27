@@ -65,7 +65,6 @@ public class AIController {
 
     @GetMapping("/code")
     public String getCode() {
-        // Initialize StringBuilder
         StringBuilder formattedContent = new StringBuilder();
         StringBuilder importAndDataDefine = new StringBuilder();
 
@@ -76,34 +75,29 @@ public class AIController {
         JSONObject generatedCode = null;
         JSONObject result = null;
 
-        // Repeat the generation process until valid stdout is obtained
         while (true) {
-               try {
-                // Generate AI code using the scenario, task, and data
+            try {
+                // Generate AI code
                 PythonCodeGenerator codeGenerator = new PythonCodeGenerator(problem.getScenario(), problem.getTask(), problem.getData());
-                generatedCode = codeGenerator.generateCode();  // Retry if JSONException occurs
+                generatedCode = codeGenerator.generateCode();
 
-                // Check if the generated code is null or empty
                 if (generatedCode == null || generatedCode.isEmpty()) {
                     return "Failed to generate valid code.";
                 }
 
-                // Clear StringBuilder to prevent content accumulation
                 formattedContent.setLength(0);
                 importAndDataDefine.setLength(0);
 
-                // Process the 'data' part
+                // Process the 'data' part without removing whitespace
                 if (generatedCode.has("data")) {
                     JSONArray dataArray = generatedCode.getJSONArray("data");
                     for (int i = 0; i < dataArray.length(); i++) {
                         importAndDataDefine.append(dataArray.getString(i)).append("\n");
                     }
                 }
-
-                // Append the 'data' part to the formattedContent
                 formattedContent.append(importAndDataDefine);
 
-                // Process the 'code' part
+                // Process the 'code' part without removing whitespace
                 if (generatedCode.has("code")) {
                     JSONArray codeArray = generatedCode.getJSONArray("code");
                     for (int i = 0; i < codeArray.length(); i++) {
@@ -111,11 +105,11 @@ public class AIController {
                     }
                 }
 
-                // Merge 'data' and 'code' into one Python script
-                 problem.setPythonCode( formattedContent.toString().trim());
+                // Set Python code without modifying whitespace yet
+                problem.setPythonCode(formattedContent.toString().trim());
                 System.out.println("Generated Python Code:\n" + problem.getPythonCode());
 
-                // Execute the generated Python code and capture exceptions
+                // Execute the generated Python code
                 String currentDir = System.getProperty("user.dir");
                 String directoryPath = currentDir + "/IDE/src/tmp";
                 String scriptName = "code.py";
@@ -126,27 +120,48 @@ public class AIController {
                 PythonFileExecutor pythonExecutor = new PythonFileExecutor(writer, executor);
                 result = pythonExecutor.executePythonCode(problem.getPythonCode(), directoryPath, scriptName);
 
-                // Print execution result
                 System.out.println("Execution Result:\n" + result.toString());
 
-                // If stdout is not empty, return the generated code
+                // Check if stdout has content
                 if (!Objects.equals(result.get("stdout").toString(), "")) {
-                     problem.setCorrectOutput(result);
+                    problem.setCorrectOutput(result);
+
+                    // Apply whitespace trimming only if stdout has content
+                    String[] lines = formattedContent.toString().split("\n");
+                    StringBuilder finalContent = new StringBuilder();
+
+                    for (String line : lines) {
+                        int leadingSpaces = 0;
+                        while (leadingSpaces < line.length() && line.charAt(leadingSpaces) == ' ') {
+                            leadingSpaces++;
+                        }
+
+                        // Remove leading spaces if they're a multiple of 4
+                        if (leadingSpaces % 4 == 0) {
+                            line = line.substring(leadingSpaces);
+                        }
+
+                        finalContent.append(line).append("\n");
+                    }
+
+                    // Update problem's Python code with formatted content
+                    problem.setPythonCode(finalContent.toString().trim());
+                    System.out.println("Final Formatted Python Code:\n" + problem.getPythonCode());
+
                     return generatedCode.toString();
                 }
 
-                // If stdout is empty, restart the generation process
                 System.out.println("Empty stdout, retrying code generation...");
 
             } catch (JSONException e) {
                 System.out.println("JSON error encountered: " + e.getMessage());
-                // Retry the logic
             } catch (Exception exp) {
                 System.out.println("Error executing Python code: " + exp.getMessage());
                 return "Error executing Python code: " + exp.getMessage();
             }
         }
     }
+
 
 
     @GetMapping("/hint")
