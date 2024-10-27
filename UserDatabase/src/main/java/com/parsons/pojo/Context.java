@@ -7,6 +7,7 @@ public class Context {
     private String contextTitle;
     private String topicTitle;
 
+    public Context() {}
     public Context(String contextTitle, String topicTitle) {
         this.contextTitle = contextTitle;
         this.topicTitle = topicTitle;
