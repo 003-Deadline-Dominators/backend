@@ -12,8 +12,8 @@ import java.util.List;
 public class Driver {
     public static void main(String[] args) {
         // Define your variables
-        String topic = "Linear Regression";
-        String context = "Forecasting Demand Based on Economic Indicators";
+        String topic = "Reading/Writing CSV files";
+        String context = "Managing Customer Data";
         StringBuilder importAndDataDefine = new StringBuilder();
 
         // Instantiate the problem generator

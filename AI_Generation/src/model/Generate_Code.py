@@ -36,13 +36,14 @@ def generate_code_prompt(topic, scenario, task, data=None):
     common_instructions = """
     Ensure the generated Python code meets the following criteria:
     - **Understand the Problem**: Carefully read the scenario and task to fully grasp the requirements.
-    - **Complete Solution:** Write Python code that must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs (e.g., print output)
+    - **Complete Solution:** Write Python code that must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and provided print statement.
     - **Correctness:** The code should be error-free and capable of running successfully on the provided dataset (or a similar dataset structure).
     - **Procedural Structure**: Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
     - **Structured Code:** Include steps for loading and processing the data (if applicable), any intermediate calculations or transformations needed to meet the task requirements, and final calculations or results that directly solve the task.
     - **Libraries:** If external libraries (like pandas, NumPy, etc.) are required, import them at the beginning of the code and explain their use where necessary.
     - **Modular Approach:** Where applicable, break the solution into functions or logical blocks to enhance readability and reusability.
     - **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
+    - **Print Final Result:** Each solution must include a print statement at the end that clearly outputs the final result.
     - **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
     - **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
     - **Data Consistency**: If data is provided, ensure the code correctly loads, processes, and uses it as per the task requirements.
@@ -58,52 +59,45 @@ def generate_code_prompt(topic, scenario, task, data=None):
     specific_instructions = ""
     if topic == "DataFrame":
         specific_instructions = """
-        - Use pandas to perform operations such as filtering, merging, and aggregation on DataFrame.
-        - Handle missing values using methods like fillna or dropna.
-        - Convert data types of DataFrame columns as required to ensure correct data processing.
-        - Perform conditional operations on data using query or loc methods.
+        - Focus on operations such as filtering, merging, sorting, and aggregation to manage and manipulate tabular data.
+        - Address common issues like missing values, data type conversions, and conditional filtering.
+        - Ensure that these operations are applicable regardless of the specific data manipulation library used.
         """
     elif topic == "NMI Normalised Mutual Information":
         specific_instructions = """
-        - Use the sklearn.metrics or scipy.stats modules to compute the Normalised Mutual Information.
-        - Preprocess the datasets to ensure that they are properly aligned and that categorical data is appropriately encoded.
-        - Handle any data inconsistencies or missing data before performing calculations.
-        - Explain the significance of the NMI score in the context of data dependency and correlation.
+        - Discuss the application of Normalised Mutual Information to measure statistical dependencies between datasets.
+        - Ensure proper data preprocessing, including alignment and encoding, is discussed to facilitate accurate calculations.
+        - Emphasize the interpretation and significance of NMI scores in understanding data relationships.
         """
     elif topic == "Sentence Splitting Using nltk":
         specific_instructions = """
-        - Use the nltk.tokenize module to split text into sentences.
-        - Ensure the tokenizer handles various sentence terminators beyond just periods (e.g., exclamation points, question marks).
-        - Implement exception handling for encoding issues or malformed inputs.
-        - Optionally, include functionality to count and display the frequency of certain words or phrases within the sentences.
+        - Explain methods for splitting text into sentences, considering various punctuation and special cases.
+        - Include preprocessing considerations to ensure robust sentence detection across different text formats.
+        - Discuss extending functionality to include analysis like frequency of specific words or phrases.
         """
     elif topic == "Correlation":
         specific_instructions = """
-       - Use pandas to calculate Pearson or Spearman correlation coefficients between different variables in a dataset.
-       - Handle non-numeric data by applying appropriate conversions or exclusions.
-       - Include functionality to handle and report any missing or infinite values before performing correlation analysis.
-       - Optionally, generate a correlation matrix and describe its implications for data relationships.
-       """
+        - Discuss the computation of correlation coefficients to assess relationships between variables.
+        - Address the preparation of data, including managing different data types and missing values.
+        - Explain how correlation findings can be interpreted to identify relationships between variables.
+        """
     elif topic == "Linear Regression":
         specific_instructions = """
-        - Use scikit-learn to implement a linear regression model.
-        - Preprocess the data by scaling or normalizing it as necessary to improve model performance.
-        - Include code to split the data into training and testing sets.
-        - Provide output that includes regression coefficients, intercept, and model performance metrics (e.g., R-squared, MSE).
+        - Describe setting up and implementing linear regression models, including data preparation and result interpretation.
+        - Discuss various performance metrics and their importance in evaluating the effectiveness of the model.
+        - Cover considerations such as data scaling, feature selection, and model diagnostics.
         """
     elif topic == "Decision Tree Classifiers":
         specific_instructions = """
-        - Use scikit-learn to implement a decision tree classifier.
-        - Handle categorical data by encoding it appropriately using methods like OneHotEncoder or LabelEncoder.
-        - Split the dataset into training and test sets to evaluate the model's performance.
-        - Output the decision tree's structure visually if possible, and provide accuracy metrics and classification report.
+        - Outline the usage of decision tree classifiers, focusing on data preparation, model training, and evaluation.
+        - Discuss the handling of categorical data, parameter tuning, and visualization of the model's structure.
+        - Highlight model evaluation techniques and key performance metrics.
         """
     elif topic == "Reading/Writing CSV files":
         specific_instructions = """
-        - Use pandas to read and write CSV files.
-        - Include error handling for common issues like missing files, incorrect paths, or parsing errors.
-        - Ensure that data is correctly formatted and aligned when written back to CSV.
-        - Implement checks to verify data integrity during the read/write process.
+        - Discuss the use of tools for robustly reading from and writing to CSV files, ensuring data integrity.
+        - Include error handling for common issues such as missing files, incorrect paths, or parsing errors.
+        - Emphasize checks for data integrity and formatting during the read/write process.
         """
 
     prompt += f"""

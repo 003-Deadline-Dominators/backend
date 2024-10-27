@@ -122,7 +122,7 @@ public class AIController {
 
                 // Execute the generated Python code and capture exceptions
                 String currentDir = System.getProperty("user.dir");
-                String directoryPath = "/home/ubuntu/backend/IDE/src/tmp";
+                String directoryPath = "/Users/yan_g/Desktop/IT_Project/backend/IDE/src/tmp";
                 String scriptName = "code.py";
 
                 PythonFileWriter writer = new PythonFileWriter();
@@ -205,7 +205,7 @@ public class AIController {
         System.out.println(formattedContent);
         String pythonCode = formattedContent.toString().trim();
         String currentDir = System.getProperty("user.dir");
-        String directoryPath = "/home/ubuntu/backend/IDE/src/tmp";
+        String directoryPath = "/Users/yan_g/Desktop/IT_Project/backend/IDE/src/tmp";
         String scriptName = "code.py";
 
         PythonFileWriter writer = new PythonFileWriter();
