@@ -122,7 +122,7 @@ public class AIController {
 
                 // Execute the generated Python code and capture exceptions
                 String currentDir = System.getProperty("user.dir");
-                String directoryPath = "/Users/yan_g/Desktop/IT_Project/backend/IDE/src/tmp";
+                String directoryPath = "IDE/src/tmp";
                 String scriptName = "code.py";
 
                 PythonFileWriter writer = new PythonFileWriter();
@@ -137,6 +137,29 @@ public class AIController {
                 // If stdout is not empty, return the generated code
                 if (!Objects.equals(result.get("stdout").toString(), "")) {
                     correctOutput = result;
+
+                    // Apply whitespace trimming only if stdout has content
+                    String[] lines = formattedContent.toString().split("\n");
+                    StringBuilder finalContent = new StringBuilder();
+
+                    for (String line : lines) {
+                        int leadingSpaces = 0;
+                        while (leadingSpaces < line.length() && line.charAt(leadingSpaces) == ' ') {
+                            leadingSpaces++;
+                        }
+
+                        // Remove leading spaces if they're a multiple of 4
+                        if (leadingSpaces % 4 == 0) {
+                            line = line.substring(leadingSpaces);
+                        }
+
+                        finalContent.append(line).append("\n");
+                    }
+
+                    // Update problem's Python code with formatted content
+                    pythonCode= (finalContent.toString().trim());
+                    System.out.println("Final Formatted Python Code:\n" + pythonCode);
+
                     return generatedCode.toString();
                 }
 
@@ -205,7 +228,7 @@ public class AIController {
         System.out.println(formattedContent);
         String pythonCode = formattedContent.toString().trim();
         String currentDir = System.getProperty("user.dir");
-        String directoryPath = "/Users/yan_g/Desktop/IT_Project/backend/IDE/src/tmp";
+        String directoryPath = "IDE/src/tmp";
         String scriptName = "code.py";
 
         PythonFileWriter writer = new PythonFileWriter();
