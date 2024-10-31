@@ -58,52 +58,46 @@ def generate_code_prompt(topic, scenario, task, data=None):
     specific_instructions = ""
     if topic == "DataFrame":
         specific_instructions = """
-        - Use pandas to perform operations such as filtering, merging, and aggregation on DataFrame.
-        - Handle missing values using methods like fillna or dropna.
-        - Convert data types of DataFrame columns as required to ensure correct data processing.
-        - Perform conditional operations on data using query or loc methods.
+        - Focus on operations such as filtering, merging, sorting, and aggregation.
+        - Provide simple examples for handling missing values and data type conversions.
+        - Ensure the code logic is clear and try to use chaining methods for better readability.
         """
     elif topic == "NMI Normalised Mutual Information":
         specific_instructions = """
-        - Use the sklearn.metrics or scipy.stats modules to compute the Normalised Mutual Information.
-        - Preprocess the datasets to ensure that they are properly aligned and that categorical data is appropriately encoded.
-        - Handle any data inconsistencies or missing data before performing calculations.
-        - Explain the significance of the NMI score in the context of data dependency and correlation.
+        - Discuss how to calculate Normalised Mutual Information to assess statistical dependencies between datasets.
+        - Include basic steps for data preprocessing to ensure data format consistency.
+        - Explain the significance of NMI scores and their applications in data analysis.
+
         """
     elif topic == "Sentence Splitting Using nltk":
         specific_instructions = """
-        - Use the nltk.tokenize module to split text into sentences.
-        - Ensure the tokenizer handles various sentence terminators beyond just periods (e.g., exclamation points, question marks).
-        - Implement exception handling for encoding issues or malformed inputs.
-        - Optionally, include functionality to count and display the frequency of certain words or phrases within the sentences.
+        - Explain how to use nltk to split text into sentences, considering common punctuation.
+        - Provide basic preprocessing considerations to ensure accurate sentence detection.
+        - Include a simple example of word frequency analysis.
         """
     elif topic == "Correlation":
         specific_instructions = """
-       - Use pandas to calculate Pearson or Spearman correlation coefficients between different variables in a dataset.
-       - Handle non-numeric data by applying appropriate conversions or exclusions.
-       - Include functionality to handle and report any missing or infinite values before performing correlation analysis.
-       - Optionally, generate a correlation matrix and describe its implications for data relationships.
-       """
+        - Introduce how to compute correlation coefficients to assess relationships between variables.
+        - Discuss basic methods for data preparation, including handling missing values.
+        - Explain the significance of correlation results and provide a simple visualization example.
+        """
     elif topic == "Linear Regression":
         specific_instructions = """
-        - Use scikit-learn to implement a linear regression model.
-        - Preprocess the data by scaling or normalizing it as necessary to improve model performance.
-        - Include code to split the data into training and testing sets.
-        - Provide output that includes regression coefficients, intercept, and model performance metrics (e.g., R-squared, MSE).
+        - Describe the setup and implementation of linear regression models, including data preparation.
+        - Briefly discuss common metrics for model evaluation.
+        - Highlight basic considerations for data scaling and feature selection.
         """
     elif topic == "Decision Tree Classifiers":
         specific_instructions = """
-        - Use scikit-learn to implement a decision tree classifier.
-        - Handle categorical data by encoding it appropriately using methods like OneHotEncoder or LabelEncoder.
-        - Split the dataset into training and test sets to evaluate the model's performance.
-        - Output the decision tree's structure visually if possible, and provide accuracy metrics and classification report.
+        - Outline the usage of decision tree classifiers, focusing on data preparation and model training.
+        - Discuss basic evaluation methods for the classifier, such as accuracy and confusion matrix.
+        - Briefly introduce techniques for handling categorical data.
         """
     elif topic == "Reading/Writing CSV files":
         specific_instructions = """
-        - Use pandas to read and write CSV files.
-        - Include error handling for common issues like missing files, incorrect paths, or parsing errors.
-        - Ensure that data is correctly formatted and aligned when written back to CSV.
-        - Implement checks to verify data integrity during the read/write process.
+        - Discuss how to read from and write to CSV files, ensuring data integrity.
+        - Include basic error handling for common issues, such as missing files.
+        - Emphasize validation steps during the read/write process.
         """
 
     prompt += f"""
