@@ -78,7 +78,7 @@ Backend tests are located in `UserDatabase/src/test/java/com/parsons/test`
 - Yifan Zhang (yifanzhang@student.unimelb.edu.au)
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICCENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Links
 - Website: http://54.252.5.239/
