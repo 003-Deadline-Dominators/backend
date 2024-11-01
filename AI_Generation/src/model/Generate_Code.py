@@ -53,6 +53,7 @@ def generate_code_prompt(topic, scenario, task, data=None):
         - **Code:** The rest of the code should follow, including data loading (such as converting predefined data to a DataFrame) and the main logic required to solve the task.
     - **No Single-line Symbols:** Ensure that no symbols (such as braces, brackets, parentheses, or commas) appear alone on a line to maintain clean and professional code formatting.
     - **No Visualization**: Do not include any data visualization code, like plot graphs.
+    - **No Comments**: Do not include any kinds of comments in code.
     """
 
     # 特定topic的指南
