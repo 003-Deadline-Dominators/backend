@@ -12,8 +12,8 @@ import java.util.List;
 public class Driver {
     public static void main(String[] args) {
         // Define your variables
-        String topic = "Linear Regression";
-        String context = "Forecasting Demand Based on Economic Indicators";
+        String topic = "Reading/Writing CSV files";
+        String context = "Managing Customer Data";
         StringBuilder importAndDataDefine = new StringBuilder();
 
         // Instantiate the problem generator
@@ -43,8 +43,9 @@ public class Driver {
         System.out.println("Data: " + problemDetails.optString("data"));
 
         // Instantiate the code generator with the internal data
-        PythonCodeGenerator codeGenerator = new PythonCodeGenerator(scenario, task, data);
+        PythonCodeGenerator codeGenerator = new PythonCodeGenerator(topic, scenario, task, data);
         JSONObject generatedCode = codeGenerator.generateCode();
+        // JSONObject generatedCode = new JSONObject();
 
         // System.out.println(generatedCode.toString(4));
 

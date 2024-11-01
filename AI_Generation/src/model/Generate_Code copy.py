@@ -11,7 +11,7 @@ genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-def generate_code_prompt(scenario, task, data=None):
+def generate_code_prompt(topic, scenario, task, data=None):
     prompt = f"""
     You are tasked with generating Python code to solve the following problem.
 
@@ -31,19 +31,25 @@ def generate_code_prompt(scenario, task, data=None):
     prompt += """
     Ensure that the generated Python code meets the following criteria:
 
-    1. **Complete Solution**: The code must fully address all parts of the task with no missing components.
-    2. **Correctness**: The code should be free of errors and runnable in a standard Python environment.
-    3. **Clear Separation of Sections**: The code must be divided into two distinct sections:
+    1. **Complete Solution:** The code must fully address all parts of the task. Partial solutions or minimal code snippets are not acceptable. The solution must be comprehensive and cover any necessary data processing, analysis, and final outputs (e.g., print output)
+    2. **Correctness:** The code should be error-free and capable of running successfully on the provided dataset (or a similar dataset structure).
+    3. **Structured Code:** The solution must include:
+        - All import statements must be placed at the very top.
+        - Steps for loading and processing the data (if applicable).  
+        - Any intermediate calculations or transformations needed to meet the task requirements.
+        - Final calculations or results that directly solve the task.
+    4. **Modular Approach:** Where applicable, break the solution into functions or logical blocks to enhance readability and reusability.
+    5. **Libraries:** If external libraries (like pandas, NumPy, etc.) are required, import them at the beginning of the code and explain their use where necessary.
+    6. **Procedural Structure**: Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
+    6. **Output:** Ensure the code includes appropriate print statements or return values to display the final results clearly.
+    7. **Robustness:** Handle potential errors, such as missing or malformed data, if they are likely to occur in the dataset.
+    8. **Readable Output:** The code should display or return the final results in a human-readable format, such as printing the top 5 best-selling products in a clean table or returning the total revenue by category in a sorted list.
+    9. **No Partial Code:** The solution should not be a minimal code snippet. All parts of the task should be covered in the generated code.
+    10. **Filename Consistency**: Use the exact filenames specified in the scenario, task, or data sections when reading from or writing to files.
+    11. **Data Consistency**: If data is provided, that data should be used in solution.
+    11. **Clear Separation of Sections**: The code must be divided into two distinct sections:
         - **Imports and Data Definition**: All import statements must be placed at the very top, followed by any predefined data (e.g., lists or dictionaries).
-        - **Functional Code**: The rest of the code should follow, including data loading (such as converting predefined data to a DataFrame) and the main logic required to solve the task.
-    4. **Procedural Structure**: Avoid object-oriented programming (OOP) patterns. Write the code in a clear, structured, and procedural style.
-    5. **Libraries**: Import any necessary libraries (e.g., pandas, NumPy, scikit-learn) at the start of the code.
-    6. **Output**: Ensure the code provides clear outputs for the task, such as print statements or returning final results.
-    7. **Robustness**: Handle potential errors, such as missing or malformed data, if applicable.
-    8. **Readable Code**: Maintain clean, readable code with proper indentation and formatting. Avoid placing symbols like parentheses or braces on separate lines.
-    9. **Standalone Code**: The code should be executable as-is without any additional modifications.
-    10 **Output**: Include code that displays or returns the final results in a clear and readable format, such as printing outputs, or saving results to files.
-    11. **No Additional Explanations**: Provide only the Python code. Do not include explanations, output examples, or additional text beyond the code itself.
+        - **Code**: The rest of the code should follow, including data loading (such as converting predefined data to a DataFrame) and the main logic required to solve the task.
 
     The output format should be as follows:
     ```json

@@ -25,6 +25,8 @@ public class DockerExecutor {
         List<String> command = new ArrayList<>();
         command.add("docker");
         command.add("run");
+        command.add("--platform");
+        command.add("linux/arm64");
         command.add("--rm");
 
         // Mount the local directory to the Docker container

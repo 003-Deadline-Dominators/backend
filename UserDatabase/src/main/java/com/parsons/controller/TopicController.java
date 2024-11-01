@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://54.252.5.239")
 @RequestMapping("/topics")
 public class TopicController {
     private final TopicService topicService;

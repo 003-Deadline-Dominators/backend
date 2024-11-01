@@ -30,6 +30,8 @@ public class PythonProblemGenerator {
         List<String> command = new ArrayList<>();
         command.add("docker");
         command.add("run");
+        command.add("--platform");
+        command.add("linux/arm64");
         command.add("--rm");
         command.add("rita6667/gemini-app:latest");  // Docker image name
         command.add("src/model/Generate_Question.py");
@@ -63,7 +65,7 @@ public class PythonProblemGenerator {
             // Check if the 'data' field contains CSV information
             if (!dataContent.isEmpty()) {
                 // Check if the topic is 'read/write csv files'
-                if (topic.equalsIgnoreCase("read/write csv files")) {
+                if (topic.equalsIgnoreCase("Reading/Writing CSV files")) {
                     // Expected format:
                     // data: filename.csv
                     // CSV data...
@@ -103,6 +105,8 @@ public class PythonProblemGenerator {
 
         // Build the file path
         String filePath = currentDir + "/IDE/src/tmp/" + filename;
+        // String filePath = "/Users/yan_g/Desktop/IT_Project/backend/IDE/src/tmp" + filename;
+
 
         try (FileWriter writer = new FileWriter(new File(filePath))) {
             // Split the CSV data into lines
