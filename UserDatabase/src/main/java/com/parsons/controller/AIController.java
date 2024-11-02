@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.util.Objects;
 
 @RestController
@@ -122,7 +123,11 @@ public class AIController {
 
                 // Execute the generated Python code and capture exceptions
                 String currentDir = System.getProperty("user.dir");
-                String directoryPath = "IDE/src/tmp";
+                File currentDirectory = new File(currentDir);
+                File parentDir = currentDirectory.getParentFile();
+                File grandparentDir = parentDir.getParentFile();
+                String finalPath = grandparentDir.getAbsolutePath();
+                String directoryPath = finalPath + "/IDE/src/tmp";
                 String scriptName = "code.py";
 
                 PythonFileWriter writer = new PythonFileWriter();
@@ -228,7 +233,11 @@ public class AIController {
         System.out.println(formattedContent);
         String pythonCode = formattedContent.toString().trim();
         String currentDir = System.getProperty("user.dir");
-        String directoryPath = "IDE/src/tmp";
+        File currentDirectory = new File(currentDir);
+        File parentDir = currentDirectory.getParentFile();
+        File grandparentDir = parentDir.getParentFile();
+        String finalPath = grandparentDir.getAbsolutePath();
+        String directoryPath = finalPath + "/IDE/src/tmp";
         String scriptName = "code.py";
 
         PythonFileWriter writer = new PythonFileWriter();
