@@ -102,7 +102,7 @@ java -jar UserDatabase-0.0.1-SNAPSHOT.jar --server.port=8080
 
 The following ER diagram illustrates the database structure of the CodeCraft backend system:
 
-![Entity Relationship Diagram](er-diagram.png)
+![Entity Relationship Diagram](ER-diagram.png)
 
 ### Key Classes
 
