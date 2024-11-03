@@ -173,6 +173,43 @@ Fields:
 2. Upload the packaged JAR file to your hosting platform
 3. Update any `localhost` references to your hosting platform's public IP address
 
+# Changelog
+
+## Version 1.2 (November 2024)
+- Updated ER diagram and system architecture
+- Improved file directory structure
+- Added code formatting and whitespace handling
+
+## Version 1.1 (October 2024)
+- Enhanced code generation and verification system
+- Implemented hint generation functionality
+- Added JSONException handling in AI Controller
+- Restructured controller layer with combined Problem/IDE checking
+
+## Version 1.0 (September 2024)
+- Released core IDE features with AI integration
+- Implemented secure IP address encryption
+- Added CSV file generation and storage
+- Integrated database system with jar module support
+- Completed data transport layer between components
+
+## Version 0.2 (September 2024)
+- Implemented Python IDE core functionality
+- Added Topic and Context mapping
+- Created admin user management system
+- Integrated Docker environment for Python
+
+## Version 0.1 (August 2024)
+- Initial AI Generation system implementation
+- Basic Topic Selection functionality
+- Database schema design
+- Initial system architecture setup
+
+## Version 0.0 (August 2024)
+- Project initialization
+- Basic repository setup
+- Initial documentation
+
 ## Additional Information
 
 ### Security and Ethics
